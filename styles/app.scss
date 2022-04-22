@@ -1,0 +1,13 @@
+@import "./variables";
+@import "./base";
+@import "./mixins";
+@import "./utilities";
+
+/* Pages : Importe aqui los estilos del directorio ./pages */
+@import "./pages/home";
+
+/* Components : Importe aqui los estilos del directorio ./components */
+@import "./components/navbar";
+
+
+
