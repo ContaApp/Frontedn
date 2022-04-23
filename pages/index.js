@@ -1,31 +1,31 @@
 import { Container, Row, Col } from 'react-bootstrap';
+import Layout from '../components/utilities/Layout'
 
 export default function Home() {
   return (
-    <>
-      <Container fluid>
+    <Layout>
+      <Container>
         <Row>
-          <Col>NavBar</Col>
+          <Col sm={12} md={6}>Hero</Col>
+          <Col sm={12} md={6} >Hero</Col>
         </Row>
         <Row>
-          <Col>Hero</Col>
+          <Col sm={12} md={6} >Section 1</Col>
+          <Col sm={12} md={6} >Section 1</Col>
         </Row>
         <Row>
-          <Col>Section 1</Col>
+          <Col sm={12} md={6} >Section 2</Col>
+          <Col sm={12} md={6} >Section 2</Col>
         </Row>
         <Row>
-          <Col>Section 2</Col>
+          <Col sm={12} md={6} >Section 3</Col>
+          <Col sm={12} md={6} >Section 3</Col>
         </Row>
         <Row>
-          <Col>Section 3</Col>
-        </Row>
-        <Row>
-          <Col>Card</Col>
-        </Row>
-        <Row>
-          <Col>Footer</Col>
+          <Col sm={12} md={6}>Card</Col>
+          <Col sm={12} md={6}>Card</Col>
         </Row>
       </Container>
-    </>
+    </Layout>
   )
 }
