@@ -2,6 +2,7 @@
 @import "./base";
 @import "./mixins";
 @import "./utilities";
+@import  'bootstrap/dist/css/bootstrap.min.css';
 
 /* Pages : Importe aqui los estilos del directorio ./pages */
 @import "./pages/home";
