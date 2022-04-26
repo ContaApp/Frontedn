@@ -1,0 +1,70 @@
+.section-hero{
+    //background: green;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    padding: 32px;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    justify-items: center;
+}
+.hero{
+    
+    //background:red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.text-hero{
+   //background: grey;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    width: 100%;
+    height: auto;
+font-family: $font-nunito;
+font-style: normal;
+font-weight: 400;
+font-size: 56px;
+line-height: 65px;
+color: $color-black;
+
+}
+.text-hero-span{
+    //background:blue;
+    margin-top: 0px;
+
+}
+.span-primary-hero{
+    font-family: $font-nunito;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 65px;
+    color: $color-orange;
+}
+.span-secundary-hero{
+    font-family: $font-montserrat;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: $color-gray;
+}
+
+.div-lottie-landing{
+    width: 100%;
+    height: auto;
+    //background: grey;
+    //text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+}
