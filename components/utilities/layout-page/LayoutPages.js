@@ -6,9 +6,9 @@ function LayoutPage({children}) {
         <Container className="container-layout-page">
             <Row>
                 <div className="container-column-layout">
-                  
+                  <div className="card-central-page">
                     {children}
-                    
+                  </div>
                 </div>
                 
             </Row>

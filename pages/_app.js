@@ -7,8 +7,6 @@ import DateFnsUtils from '@date-io/date-fns';
 //import LuxonUtils from '@date-io/luxon';
 
 function MyApp({ Component, pageProps }) {
-
-
 return (
 <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Component {...pageProps} />
