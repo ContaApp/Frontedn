@@ -6,12 +6,14 @@
 
 /* Pages : Importe aqui los estilos del directorio ./pages */
 @import "./pages/home";
+@import "./pages/dashboardHome";
 
 /* Components : Importe aqui los estilos del directorio ./components */
 @import "./components/navbar";
-@import "./components/white-card-landing";
-@import "./components/black-card-landing";
-@import "./components/logo-landing";
-@import "./components/imagens-landing";
-@import "./components/hero-landing";
+@import "./components/landing/white-card-landing";
+@import "./components/landing/black-card-landing";
+@import "./components/landing/logo-landing";
+@import "./components/landing/imagens-landing";
+@import "./components/landing/hero-landing";
 
+@import "./components/layout-pages";
