@@ -1,0 +1,99 @@
+.container-column-layout{
+    display: flex;
+justify-items: center;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align: center;
+}
+.card-central-page{
+margin-top: 32px;
+margin-bottom: 32px;    
+width: 90%;
+height: auto;
+background: #F9F8F8;
+box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
+display: flex;
+justify-items: center;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align: center;
+
+padding: 32px;
+}
+
+.div-multim-cad{
+  //background: blue;
+  //display: flex;
+  //flex-wrap: column;
+  //flex-direction: row;
+/* justify-items: space-between;
+align-items: space-between;
+    justify-content: space-between; */
+    text-align: center;
+    padding: 32px;
+}
+.title-card{
+ 
+}
+.p-text-card{
+
+width: 100%;
+height: auto;
+
+
+font-family: $font-montserrat;
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 27px;
+/* or 150% */
+text-align: center;
+
+/* Gray-scale/gray-600 */
+color: $color-gray;
+
+}
+.subtitle-card{
+
+}
+
+.span-title-card{
+
+}
+
+.h3-card{
+
+width: 100%;
+height: auto;
+
+
+font-family: $font-nunito;
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 27px;
+/* or 84% */
+color: $color-gray-h3;
+margin-top: 32px;
+margin-bottom: 32px;
+}
+.div-calendar-card{
+   // background: red;
+    flex-direction: column;
+justify-items: space-between;
+align-items: space-between;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.div-image-card{
+   // background: violet;
+    text-align: center;
+    padding: 0;
+}
