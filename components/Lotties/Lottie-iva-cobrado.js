@@ -1,5 +1,5 @@
 import Lottie from 'react-lottie';
-import jsonLottie from '../../public/lotties/ISR_retenido.json';
+import jsonLottie from '../../public/lotties/IVA_cobrado.json';
 
 const defaultOptions = {
     loop: true,
@@ -10,10 +10,10 @@ const defaultOptions = {
     }
   };
 
-  function LottieISRRetenido(props) {
+  function LottieIVACobrado(props) {
       return (  
 <Lottie options={defaultOptions}  />
       );
   }
   
-  export default LottieISRRetenido; 
+  export default LottieIVACobrado; 
