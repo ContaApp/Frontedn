@@ -14,6 +14,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff'; */
 
 export default function InputMoney(props) {
     const nombre = props.nombre;
+    const id= props.idInput;
   const [values, setValues] = React.useState({
     amount: '',
   });
@@ -29,7 +30,7 @@ export default function InputMoney(props) {
         <FormControl fullWidth sx={{ m: 1 }}>
           <InputLabel htmlFor="outlined-adornment-amount">{nombre}</InputLabel>
           <OutlinedInput
-            id="Input-isrCobranza"
+            id={id}
             value={values.amount}
             onChange={handleChange('amount')}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
