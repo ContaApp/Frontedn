@@ -44,7 +44,7 @@ export default function ISRDeducible() {
                                                                 estas son todo gasto efectivamente pagado relacionado con tu actividad, estos se deberan considerar sin IVA o alguna retención.</p>
                                     
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="ISR Deducible" idInput=""Input-isrDeducible />
+                                        <InputMoney nombre="ISR Deducible" idInput="Input-isrDeducible" />
                                     </div>
                                     <div className="div-container-buttons-card">
                                         <Button className="btn-pages-np">

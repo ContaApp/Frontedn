@@ -43,7 +43,7 @@ export default function ISRCobranza() {
                                     <p className="p-text-card">Por el momento solo se puede calcular ejercicios fiscales de año 2022.</p>
                                     <p className="p-text-card">Se iniciará con los impuestos relacionados al ISR y posteriormente con el IVA.</p>
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="ISR Cobranza" idInput=""Input-isrCobranza />
+                                        <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" />
                                     </div>
                                     <div className="div-container-buttons-card">
                                         <Button className="btn-pages-np">

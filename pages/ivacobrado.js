@@ -46,7 +46,7 @@ en tus facturas que efectivamente fueron cobradas en el
 mes.</p>
                                     
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="IVA Cobrado" idInput=""Input-ivaCobrado />
+                                        <InputMoney nombre="IVA Cobrado" idInput="Input-ivaCobrado" />
                                     </div>
                                     <div className="div-container-buttons-card">
                                         <Button className="btn-pages-np">

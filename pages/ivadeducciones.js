@@ -4,26 +4,26 @@ import Image from 'next/image';
 import Layout from '../components/utilities/Layout';
 import LayoutPage from '../components/utilities/layout-page/LayoutPages';
 
-import StepperISR from '../components/utilities/Steppers/StepperISR';
+import StepperIVA from '../components/utilities/Steppers/StepperIVA';
 import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieISRRetenido from '../components/Lotties/Lottie-isr-retenido';
+import LottieIVADeducciones from '../components/Lotties/Lottie-iva-deducciones';
 
 import next from '../public/assets/icons/Next.svg';
 import prev from '../public/assets/icons/Previus.svg';
 
-export default function ISRRetenido() {
+export default function IVADeducciones() {
     return (
         <Layout>
             <Col sm={12} md={12}>
-                <StepperISR num='2' />
+                <StepperIVA num='1' />
             </Col>
 
             <LayoutPage>
 
                 <Col sm={12} md={12}>
-                    <h1 className="title-card">ISR
+                    <h1 className="title-card">IVA
                         <span className="span-title-card">
-                            Retenido
+                            Deducciones
                         </span>
                     </h1>
                 </Col>
@@ -34,19 +34,19 @@ export default function ISRRetenido() {
                             <Col sm={12} md={5}>
                                 <div className="div-image-card">
                                     <div className="div-container-lottie-card">
-                                        <LottieISRRetenido id="lottieISRRetenido" className="lottie-pages" alt="ISR Retenido" />
+                                        <LottieIVADeducciones id="lottieIVADeducciones" className="lottie-pages" alt="IVA Deducciones" />
                                     </div>
                                 </div>
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El ISR retenido es aquel que se da cuando una persona fisica
-factura servicios profesionales a una persona moral, este monto
-lo podras encontrar desglozado en tus facturas efectivamente
-cobradas en el mes.</p>
+                                    <p className="p-text-card">El IVA acreditable o dedudible, es aquel IVA que efectivamente
+pagaste de gastos relacionados con tu actividad en el mes. 
+Asi mismos, estos deben contar con su factura para poder
+ser deducibles.</p>
                                     
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="ISR Retenido" idInput="Input-isrRetenido" />
+                                        <InputMoney nombre="IVA Acreditable" idInput="Input-ivaAcreditable" />
                                     </div>
                                     <div className="div-container-buttons-card">
                                         <Button className="btn-pages-np">
