@@ -35,7 +35,7 @@ export default function InputMoney(props) {
             onChange={handleChange('amount')}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
             label={nombre}
-            defaultValue="Normal"
+            //defaultValue="Normal"
             placeholder="Ingrese la cantidad" 
             variant="outlined"
             required= {true}
