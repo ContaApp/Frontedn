@@ -4,26 +4,26 @@ import Image from 'next/image';
 import Layout from '../components/utilities/Layout';
 import LayoutPage from '../components/utilities/layout-page/LayoutPages';
 
-import StepperISR from '../components/utilities/Steppers/StepperISR';
+import StepperIVA from '../components/utilities/Steppers/StepperIVA';
 import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieISRCobranza from '../components/Lotties/Lottie-isr-cobranza';
+import LottieIVADeducciones from '../components/Lotties/Lottie-iva-deducciones';
 
 import next from '../public/assets/icons/Next.svg';
 import prev from '../public/assets/icons/Previus.svg';
 
-export default function ISRCobranza() {
+export default function IVADeducciones() {
     return (
         <Layout>
             <Col sm={12} md={12}>
-                <StepperISR num='0' />
+                <StepperIVA num='1' />
             </Col>
 
             <LayoutPage>
 
                 <Col sm={12} md={12}>
-                    <h1 className="title-card">ISR
+                    <h1 className="title-card">IVA
                         <span className="span-title-card">
-                            Cobranza
+                            Deducciones
                         </span>
                     </h1>
                 </Col>
@@ -34,16 +34,19 @@ export default function ISRCobranza() {
                             <Col sm={12} md={5}>
                                 <div className="div-image-card">
                                     <div className="div-container-lottie-card">
-                                        <LottieISRCobranza id="lottieISRCobranza" className="lottie-pages" alt="Unete a tuContapp" />
+                                        <LottieIVADeducciones id="lottieIVADeducciones" className="lottie-pages" alt="IVA Deducciones" />
                                     </div>
                                 </div>
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">Por el momento solo se puede calcular ejercicios fiscales de año 2022.</p>
-                                    <p className="p-text-card">Se iniciará con los impuestos relacionados al ISR y posteriormente con el IVA.</p>
+                                    <p className="p-text-card">El IVA acreditable o dedudible, es aquel IVA que efectivamente
+pagaste de gastos relacionados con tu actividad en el mes. 
+Asi mismos, estos deben contar con su factura para poder
+ser deducibles.</p>
+                                    
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" />
+                                        <InputMoney nombre="IVA Acreditable" idInput="Input-ivaAcreditable" />
                                     </div>
                                     <div className="div-container-buttons-card">
                                         <Button className="btn-pages-np">

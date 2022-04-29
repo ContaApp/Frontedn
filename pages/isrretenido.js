@@ -6,16 +6,16 @@ import LayoutPage from '../components/utilities/layout-page/LayoutPages';
 
 import StepperISR from '../components/utilities/Steppers/StepperISR';
 import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieISRCobranza from '../components/Lotties/Lottie-isr-cobranza';
+import LottieISRRetenido from '../components/Lotties/Lottie-isr-retenido';
 
 import next from '../public/assets/icons/Next.svg';
 import prev from '../public/assets/icons/Previus.svg';
 
-export default function ISRCobranza() {
+export default function ISRRetenido() {
     return (
         <Layout>
             <Col sm={12} md={12}>
-                <StepperISR num='0' />
+                <StepperISR num='2' />
             </Col>
 
             <LayoutPage>
@@ -23,7 +23,7 @@ export default function ISRCobranza() {
                 <Col sm={12} md={12}>
                     <h1 className="title-card">ISR
                         <span className="span-title-card">
-                            Cobranza
+                            Retenido
                         </span>
                     </h1>
                 </Col>
@@ -34,16 +34,19 @@ export default function ISRCobranza() {
                             <Col sm={12} md={5}>
                                 <div className="div-image-card">
                                     <div className="div-container-lottie-card">
-                                        <LottieISRCobranza id="lottieISRCobranza" className="lottie-pages" alt="Unete a tuContapp" />
+                                        <LottieISRRetenido id="lottieISRRetenido" className="lottie-pages" alt="ISR Retenido" />
                                     </div>
                                 </div>
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">Por el momento solo se puede calcular ejercicios fiscales de año 2022.</p>
-                                    <p className="p-text-card">Se iniciará con los impuestos relacionados al ISR y posteriormente con el IVA.</p>
+                                    <p className="p-text-card">El ISR retenido es aquel que se da cuando una persona fisica
+factura servicios profesionales a una persona moral, este monto
+lo podras encontrar desglozado en tus facturas efectivamente
+cobradas en el mes.</p>
+                                    
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" />
+                                        <InputMoney nombre="ISR Retenido" idInput="Input-isrRetenido" />
                                     </div>
                                     <div className="div-container-buttons-card">
                                         <Button className="btn-pages-np">

@@ -9,6 +9,7 @@ import { Container, Row, Col} from 'react-bootstrap';
 const steps = [
   'IVA Cobranza',
   'IVA Deducciones',
+  'IVA Retenido',
   'Resumen IVA',
   'Acreditamiento'
 ];
