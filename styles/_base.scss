@@ -174,3 +174,19 @@ align-items: space-between;
     margin-bottom: 0px;
 
 }
+
+
+ /*Estilos contenedor de botoenes de pages */
+
+ .div-container-buttons-pages-card{
+    width: 100%;
+    height: auto;
+    //background: orange;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-around;
+    padding:0px;
+    margin-top: 0px;
+
+}
