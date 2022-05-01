@@ -13,14 +13,14 @@ function Footer() {
                             height="30"
                             className="d-inline-block align-top"
                         />
-                        <ul className="col-12 col-md-3 list-unstyled">
+                        <ul className="col-12 col-md-3 col-lg-6 list-unstyled">
                             <li className='font-weight-bold mb-2'>Compañia</li>
                             <li>Inicio</li>
                             <li>Beneficios</li>
                             <li>Inicia sesión</li>
                             <li>Crea tu cuenta</li>
                         </ul>
-                        <ul className="col-12 col-md-3 list-unstyled">
+                        <ul className="col-12 col-md-3 col-lg-6 list-unstyled">
                             <li className='font-weight-bold mb-2'>CONTACTO</li>
                             <li>+52 (55) 1234 5678</li>
                             <li>info@tucontapp.mx</li>
