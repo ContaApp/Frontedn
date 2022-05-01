@@ -4,6 +4,7 @@ import Layout from '../components/utilities/Layout';
 import TextField from '@mui/material/TextField';
 import { Box } from '@mui/material';
 import { fontFamily } from '@mui/system';
+import { Button } from 'react-bootstrap';
 import LayoutPage from '../components/utilities/layout-page/LayoutPages';
 const styles = theme => ({
     textField: {
@@ -23,97 +24,86 @@ const styles = theme => ({
 function Register() {
     return (
         <Layout>
+            <section className="register-page-container">
+                <form className="register-page-section-form">
+                    <h2 className='title-card text-center'>Crear una <span className='yellow-text'>cuenta</span></h2>
+                    <p className='p-text-card text-center'>
+                        Persona fisica con actividad profesional y empresarial
+                    </p>
+                    <TextField
+                        id="outlined-full-width"
+                        label="Nombre Completo"
+                        className="register-input"
+                        placeholder="Nombre completo"
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{
+                            style: { color: '#EBA53D' },
+                            shrink: true
+                        }}
+                        variant="outlined"
+                    />
+                    <TextField
+                        id="outlined-full-width"
+                        label="RFC"
+                        placeholder="RFC"
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{
+                            style: { color: '#EBA53D' },
+                            shrink: true
+                        }}
+                        variant="outlined"
+                        className='register-input'
+                    />
+                    <h2 className='title-card text-center'>
+                        Datos acceso
+                    </h2>
 
-            <Box
-                component="form"
-                sx={{
-                    maxWidth: '513px',
-                    maxHeight: '526px',
-                    padding: '1rem'
-  }
-                }
-                noValidate
-                autoComplete="off"
-
-            >
-            <h2 className='title-card'>
-                    Crear una cuenta
-                </h2>
-                <p className='p-text-card'>
-                    Persona fisica con actividad profesional y empresarial
-                </p>
-                <TextField
-                    id="outlined-full-width"
-                    label="Nombre Completo"
-                    className='register-input'
-                    placeholder="Nombre completo"
-                    fullWidth
-                    margin="normal"
-                    InputLabelProps={{
-                        style: { color: '#EBA53D' },
-                        shrink: true
-                    }}
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-full-width"
-                    label="RFC"
-                    style={{ margin: 8 }}
-                    placeholder="RFC"
-                    fullWidth
-                    margin="normal"
-                    InputLabelProps={{
-                        style: { color: '#EBA53D' },
-                        shrink: true
-                    }}
-                    variant="outlined"
-                />
-                <h2 className='title-card'>
-                    Datos acceso
-                </h2>
-
-                <TextField
-                    id="outlined-full-width"
-                    label="Correo electronico"
-                    style={{ margin: 8 }}
-                    placeholder="Correo electronico"
-                    fullWidth
-                    margin="normal"
-                    InputLabelProps={{
-                        style: { color: '#EBA53D' },
-                        shrink: true
-                    }}
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-full-width"
-                    label="Contraseña"
-                    style={{ margin: 8 }}
-                    placeholder="Contraseña"
-                    fullWidth
-                    margin="normal"
-                    InputLabelProps={{
-                        style: { color: '#EBA53D' },
-                        shrink: true
-                    }}
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-full-width"
-                    label="Confirmar contraseña"
-                    style={{ margin: 8 }}
-                    placeholder="Confirmar contraseña"
-                    fullWidth
-                    margin="normal"
-                    InputLabelProps={{
-                        style: { color: '#EBA53D' },
-                        shrink: true
-                    }}
-                    variant="outlined"
-                />
-            </Box>
-
-
+                    <TextField
+                        id="outlined-full-width"
+                        label="Correo electronico"
+                        placeholder="Correo electronico"
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{
+                            style: { color: '#EBA53D' },
+                            shrink: true
+                        }}
+                        variant="outlined"
+                        className='register-input'
+                    />
+                    <TextField
+                        id="outlined-full-width"
+                        label="Contraseña"
+                        placeholder="Contraseña"
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{
+                            style: { color: '#EBA53D' },
+                            shrink: true
+                        }}
+                        variant="outlined"
+                        className='register-input'
+                    />
+                    <TextField
+                        id="outlined-full-width"
+                        label="Confirmar contraseña"
+                        placeholder="Confirmar contraseña"
+                        fullWidth
+                        margin="normal"
+                        InputLabelProps={{
+                            style: { color: '#EBA53D' },
+                            shrink: true
+                        }}
+                        variant="outlined"
+                        className='register-input'
+                    />
+                    <Button className="Button-Register">
+                        <span className="text-btn-landing">Crear cuenta</span>
+                    </Button>
+                </form>
+            </section>
         </Layout>
     )
 }
