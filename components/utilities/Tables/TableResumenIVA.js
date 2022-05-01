@@ -15,15 +15,14 @@ function createData(name, january, february, march, april, may,
 }
 
 const rows = [
-  createData('COBRANZA', 5000.00, 6.0, 24, 4.0, 5000.00,5000.00,5000.00,5000.00, 5000.00, 5000.00,5000.00,5000.00),
-  createData('DEDUCCIONES', 237, 9.0, 37, 4.3,237, 9.0, 37, 4.3,237, 9.0, 37, 4.3),
-  createData('UTILIDAD', 262, 16.0, 24, 6.0,262, 16.0, 24, 6.0,262, 16.0, 24, 6.0),
-  createData('ACUMULADO', 305, 3.7, 67, 4.3,305, 3.7, 67, 4.3,305, 3.7, 67, 4.3),
-  createData('ISR RETENIDO', 356, 16.0, 49, 3.9,356, 16.0, 49, 3.9,356, 16.0, 49, 3.9),
-  createData('ISR A PAGAR', 356, 16.0, 49, 3.9, 356, 16.0, 49, 3.9, 356, 16.0, 49, 3.9),
+  createData('IVA Cobrado', 5000.00, 6.0, 24, 4.0, 5000.00,5000.00,5000.00,5000.00, 5000.00, 5000.00,5000.00,5000.00),
+  createData('IVA Pagado', 237, 9.0, 37, 4.3,237, 9.0, 37, 4.3,237, 9.0, 37, 4.3),
+  createData('IVA Retenido', 262, 16.0, 24, 6.0,262, 16.0, 24, 6.0,262, 16.0, 24, 6.0),
+  createData('IVA a Cargo (favor)', 305, 3.7, 67, 4.3,305, 3.7, 67, 4.3,305, 3.7, 67, 4.3),
+  createData('IVA por Acreditar', 356, 16.0, 49, 3.9,356, 16.0, 49, 3.9,356, 16.0, 49, 3.9),
 ];
 
-export default function TableResumenISR() {
+export default function TableResumenIVA() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">

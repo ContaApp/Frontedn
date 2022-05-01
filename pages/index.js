@@ -30,7 +30,7 @@ export default function Home() {
                 <div className="hero">
                   <h2 className="text-hero">Realiza el <span className="span-primary-hero">cálculo </span> de tus impuestos</h2>
                   <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía!, </span><br></br><span className="span-secundary-hero">Calculos para personas fisicas con actividad profesional y empresarial.</span></p>
-                  <Button className="btn-landing"><span className="text-btn-landing">UNETE A tuContapp</span></Button>
+                  <div className="container-hero-button-landing"><Button className="btn-landing"><span className="text-btn-landing">UNETE A tuContapp</span></Button></div>
                 </div>
               </Col>
               <Col sm={12} md={6}>
