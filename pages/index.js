@@ -2,11 +2,11 @@ import { Container, Row, Col , Button} from 'react-bootstrap';
 import Image from 'next/image';
 import {useRouter} from 'next/router';
 
-import imageZero from '../public/assets/images/landing/00-img-landing.svg'
+import imageZero from '../public/assets/images/landing/00-img-landing.svg';
 import imageOne from '../public/assets/images/landing/01-img-landing.svg';
 import imageTwo from '../public/assets/images/landing/02-img-landing.svg';
-import imageThree from '../public/assets/images/landing/03-img-landing.svg'
-import imageFour from '../public/assets/images/landing/04-img-landing.svg'
+import imageThree from '../public/assets/images/landing/03-img-landing.svg';
+import imageFour from '../public/assets/images/landing/04-img-landing.svg';
 
 
 import Layout from '../components/utilities/Layout';
