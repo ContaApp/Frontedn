@@ -1,12 +1,14 @@
 import { Col,Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
+import Layout from '../../components/utilities/Layout';
+import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
+import Calendar from '../../components/utilities/Calendar';
 
-import Layout from '../components/utilities/Layout';
-import LayoutPage from '../components/utilities/layout-page/LayoutPages';
-import Calendar from '../components/utilities/Calendar';
+import imagenDashboardHome from '../../public/assets/images/dashboard/001-img-dashboard.svg';
 
-import imagenDashboardHome from '../public/assets/images/dashboard/001-img-dashboard.svg'
 export default function DashboardHome() {
+    const router = useRouter();
     return (
         <Layout>
             <LayoutPage>
@@ -29,7 +31,10 @@ export default function DashboardHome() {
                         <Col sm={12} md={6}>
                         <div className="div-calendar-card">
                             <Calendar />
-                            <Button className="btn-landing">
+
+                            </div>
+                            <div>
+                            <Button className="btn-landing" onClick={()=> router.push('/dashboard/isrcobranza')}>
                       <span className="text-btn-landing">CONFIRMAR</span>
                     </Button>
                         </div>

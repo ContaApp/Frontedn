@@ -8,7 +8,7 @@ text-align: center;
 }
 .card-central-page{
 margin-top: 32px;
-margin-bottom: 32px;    
+margin-bottom: 16px;    
 width: 90%;
 height: auto;
 background: #F9F8F8;
@@ -22,7 +22,7 @@ align-items: center;
 flex-direction: column;
 text-align: center;
 
-padding: 32px;
+padding: 24px;
 }
 
 .div-multim-cad{
@@ -34,10 +34,24 @@ padding: 32px;
 align-items: space-between;
     justify-content: space-between; */
     text-align: center;
-    padding: 32px;
+    padding: 24px;
+    width: 100%;
 }
 .title-card{
- 
+    width: 100%;
+height: auto;
+    font-family: $font-nunito;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 76px;
+    text-align: center;
+    
+    /* Gray-scale/gray-700 */
+    
+    color: $color-gray;
+    margin-top: 24px;
+    margin-bottom: 0;
 }
 .p-text-card{
 
@@ -62,7 +76,14 @@ color: $color-gray;
 }
 
 .span-title-card{
-
+    font-family: $font-nunito;
+font-style: normal;
+font-weight: 400;
+font-size: 56px;
+line-height: 76px;
+text-align: center;
+color: $color-orange;
+margin-left: 15px;
 }
 
 .h3-card{
@@ -93,7 +114,79 @@ align-items: space-between;
 }
 
 .div-image-card{
-   // background: violet;
+   //background: violet;
     text-align: center;
     padding: 0;
+    width: 100%;
+    height: auto
+}
+.div-container-text-card{
+    //background: brown;
+    width: 100%;
+    height: auto;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-container-buttons-card{
+    width: 80%;
+    height: 95px;
+    //background: orange;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-around;
+    padding:0px;
+    margin-top: 0px;
+    
+}
+
+.columna-de-prueba{
+
+    //background: grey;
+    width: 100%;
+    height: auto;
+    padding-top: 0px;
+    
+}
+
+.div-container-input-card{
+    //background: blue;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.lottie-pages{
+    width: 10px;
+}
+.div-container-lottie-card{
+    text-align: center;
+    align-items: center;
+    width: 100%;
+   // background: mediumaquamarine;
+    height: 300px;
+    margin-bottom: 0px;
+
+}
+
+
+ /*Estilos contenedor de botoenes de pages */
+
+ .div-container-buttons-pages-card{
+    width: 100%;
+    height: auto;
+    //background: orange;
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: space-around;
+    padding:0px;
+    margin-top: 0px;
+
 }

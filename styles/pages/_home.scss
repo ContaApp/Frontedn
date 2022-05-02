@@ -4,11 +4,35 @@
    // border: .5px solid red;
     text-align: center;
 }
-section{
+.section-one{
    // border: .5px solid blue;
-    width: 100%;
-      
+    padding: 64px; 
+    //background: aqua; 
+    display: flex;
 }
+
+.section-two{
+    display: flex;
+    // border: .5px solid blue;
+     padding: 0px; 
+     //background: red; 
+     display: flex;
+ }
+
+ .section-three{
+    // border: .5px solid blue;
+     padding: 0px; 
+     //background: violet; 
+     display: flex;
+ }
+
+.section-four{
+    width: 100%;
+    padding: 12px; 
+    //background:green;
+
+ }
+
 
 
 .div-imagen-num{
@@ -25,4 +49,30 @@ section{
     justify-content: center;
     justify-items: center;
  
+}
+
+@media screen and (max-width: 768px) {
+.section-two{
+    display: flex;
+    flex-direction: column-reverse;
+    // border: .5px solid blue;
+     padding: 0px; 
+     //background: red; 
+     display: flex;
+ }
+ .row-container-black-card{
+     display: flex;
+    width: 100%;
+    justify-content: center;
+ //background: violet;
+ padding: 0px;
+}
+}
+
+.row-container-black-card{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+ //background: violet;
+ padding: 12px;
 }

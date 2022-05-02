@@ -7,6 +7,7 @@
 /* Pages : Importe aqui los estilos del directorio ./pages */
 @import "./pages/home";
 @import "./pages/dashboardHome";
+@import "./pages/resumenMes";
 
 /* Components : Importe aqui los estilos del directorio ./components */
 @import "./components/navbar";
@@ -17,3 +18,7 @@
 @import "./components/landing/hero-landing";
 @import "./components/layout-pages";
 @import "./components/footer";
+@import "./components/lotties";
+@import "./components/button-pages";
+@import "./components/register-page";
+@import "./components/graphics";
