@@ -10,8 +10,9 @@ const steps = [
   'IVA Cobranza',
   'IVA Deducciones',
   'IVA Retenido',
-  'Resumen IVA',
-  'Acreditamiento'
+  'Acreditamiento',
+  'Resumen IVA'
+  
 ];
 
 export default function StepperIVA(props) {

@@ -1,29 +1,31 @@
 import { Col, Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
-import Layout from '../components/utilities/Layout';
-import LayoutPage from '../components/utilities/layout-page/LayoutPages';
+import Layout from '../../components/utilities/Layout';
+import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
 
-import StepperIVA from '../components/utilities/Steppers/StepperIVA';
-import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieIVACobrado from '../components/Lotties/Lottie-iva-cobrado';
+import StepperISR from '../../components/utilities/Steppers/StepperISR';
+import InputMoney from '../../components/utilities/Input/Input-money-pages';
+import LottieISRRetenido from '../../components/Lotties/Lottie-isr-retenido';
 
-import next from '../public/assets/icons/Next.svg';
-import prev from '../public/assets/icons/Previus.svg';
+import next from '../../public/assets/icons/Next.svg';
+import prev from '../../public/assets/icons/Previus.svg';
 
-export default function IVACobrado() {
+export default function ISRRetenido() {
+    const router = useRouter();
     return (
         <Layout>
             <Col sm={12} md={12}>
-                <StepperIVA num='0' />
+                <StepperISR num='2' />
             </Col>
 
             <LayoutPage>
 
                 <Col sm={12} md={12}>
-                    <h1 className="title-card">IVA
+                    <h1 className="title-card">ISR
                         <span className="span-title-card">
-                            Cobrado
+                            Retenido
                         </span>
                     </h1>
                 </Col>
@@ -34,25 +36,25 @@ export default function IVACobrado() {
                             <Col sm={12} md={5}>
                                 <div className="div-image-card">
                                     <div className="div-container-lottie-card">
-                                        <LottieIVACobrado id="lottieIVACobrado" className="lottie-pages" alt="IVA Cobrado" />
+                                        <LottieISRRetenido id="lottieISRRetenido" className="lottie-pages" alt="ISR Retenido" />
                                     </div>
                                 </div>
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El IVA trasladado o cobrado, es el IVA que efectivamente
-fue cobrado en el mes, este lo podras encontrar desglozado
-en tus facturas que efectivamente fueron cobradas en el 
-mes.</p>
+                                    <p className="p-text-card">El ISR retenido es aquel que se da cuando una persona fisica
+factura servicios profesionales a una persona moral, este monto
+lo podras encontrar desglozado en tus facturas efectivamente
+cobradas en el mes.</p>
                                     
                                     <div className="div-container-input-card">
-                                        <InputMoney nombre="IVA Cobrado" idInput="Input-ivaCobrado" />
+                                        <InputMoney nombre="ISR Retenido" idInput="Input-isrRetenido" />
                                     </div>
                                     <div className="div-container-buttons-card">
-                                        <Button className="btn-pages-np">
+                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/isrdeducible')}>
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
-                                        <Button className="btn-pages-np">
+                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/resumencalculoisr')}>
                                             <Image className="icon-btn-pages" src={next} alt="Siguiente" />
                                         </Button>
 

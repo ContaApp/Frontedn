@@ -28,7 +28,12 @@ h4.MuiTypography-root {
     color: $color-orange;
     background: none;
 }
-
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+    circle{
+        background: $color-orange;
+    }
+    
+} 
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
     color: $color-green;
 }
@@ -90,3 +95,18 @@ border: none;
      color: $color-orange;
 
  }
+
+ /*Estilos para tabla*/
+
+ .table-head-column{
+    font-family: $font-nunito;
+    color: $color-orange;
+    font-weight: bold;
+ }
+
+ .table-concept-cell{
+    font-family: $font-nunito;
+    color: $color-green;
+ }
+
+

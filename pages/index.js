@@ -1,11 +1,12 @@
 import { Container, Row, Col , Button} from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
-import imageZero from '../public/assets/images/landing/00-img-landing.svg'
+import imageZero from '../public/assets/images/landing/00-img-landing.svg';
 import imageOne from '../public/assets/images/landing/01-img-landing.svg';
 import imageTwo from '../public/assets/images/landing/02-img-landing.svg';
-import imageThree from '../public/assets/images/landing/03-img-landing.svg'
-import imageFour from '../public/assets/images/landing/04-img-landing.svg'
+import imageThree from '../public/assets/images/landing/03-img-landing.svg';
+import imageFour from '../public/assets/images/landing/04-img-landing.svg';
 
 
 import Layout from '../components/utilities/Layout';
@@ -19,6 +20,7 @@ import ButtonLanding from "../components/landing/Button-landing";
 import LottieLanding from "../components/landing/Lottie-landing";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <Layout >
       <div className="div-container">
@@ -30,7 +32,7 @@ export default function Home() {
                 <div className="hero">
                   <h2 className="text-hero">Realiza el <span className="span-primary-hero">cálculo </span> de tus impuestos</h2>
                   <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía!, </span><br></br><span className="span-secundary-hero">Calculos para personas fisicas con actividad profesional y empresarial.</span></p>
-                  <Button className="btn-landing"><span className="text-btn-landing">UNETE A tuContapp</span></Button>
+                  <div className="container-hero-button-landing"><Button className="btn-landing" onClick={()=> router.push('/register')}><span className="text-btn-landing">UNETE A tuContapp</span></Button></div>
                 </div>
               </Col>
               <Col sm={12} md={6}>
@@ -40,9 +42,9 @@ export default function Home() {
           </Hero>
           </section>
         </Row>
-        <Row>
+        <Row className="section-one">
 
-          {/*  <section className="section-one"> */}
+           
           <Col sm={12} md={6}>
             <div className="div-imagen-num" >
               <Image id="imageOne" src={imageOne} alt="Imagen tuContapp" />
@@ -58,10 +60,10 @@ export default function Home() {
               </WhiteCardLanding>
             </div>
           </Col>
-          {/*  </section> */}
+         
         </Row>
-        <Row>
-          {/* <section className="section-two"> */}
+        <Row className="section-two">
+         
             <Col sm={12} md={6} >
             <div className="div-card-text">
               <WhiteCardLanding>
@@ -77,10 +79,10 @@ export default function Home() {
               <Image id="imageTwo" src={imageTwo} alt="Imagen tuContapp" />
               </div>
             </Col>
-         {/*  </section> */}
+     
         </Row>
-        <Row>
-          {/* <section className="section-three"> */}
+        <Row className="section-three">
+          
             <Col sm={12} md={6} >
             <div className="div-imagen-num">
               <Image id="imageThree" src={imageThree} alt="Imagen tuContapp" />
@@ -96,9 +98,11 @@ export default function Home() {
                 </WhiteCardLanding>
               </div>
             </Col>
-          {/* </section> */}
+         
         </Row>
-        <Row>
+     
+      </Container>
+      <Row className="row-container-black-card">
           <section className="section-four">
             <BlackCardLanding>
               <Row>
@@ -108,7 +112,7 @@ export default function Home() {
                     <p className="text-span"><span className="span-primary-blackcard">Autonomía </span> 
                     <span className="span-secundary-blackcard">en tus declaraciones</span></p>
                     <p className="text-p">¡Presenta tus declaraciones de manera correcta!</p>
-                    <Button className="btn-landing">
+                    <Button className="btn-landing" onClick={()=> router.push('/register')}>
                       <span className="text-btn-landing">UNETE A tuContapp</span>
                     </Button>
                   </div>
@@ -120,7 +124,7 @@ export default function Home() {
             </BlackCardLanding>
           </section >
         </Row>
-      </Container></div>
+      </div>
     </Layout>
   )
 }
