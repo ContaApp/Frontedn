@@ -40,9 +40,9 @@ export default function Home() {
           </Hero>
           </section>
         </Row>
-        <Row>
+        <Row className="section-one">
 
-          {/*  <section className="section-one"> */}
+           
           <Col sm={12} md={6}>
             <div className="div-imagen-num" >
               <Image id="imageOne" src={imageOne} alt="Imagen tuContapp" />
@@ -58,10 +58,10 @@ export default function Home() {
               </WhiteCardLanding>
             </div>
           </Col>
-          {/*  </section> */}
+         
         </Row>
-        <Row>
-          {/* <section className="section-two"> */}
+        <Row className="section-two">
+         
             <Col sm={12} md={6} >
             <div className="div-card-text">
               <WhiteCardLanding>
@@ -77,10 +77,10 @@ export default function Home() {
               <Image id="imageTwo" src={imageTwo} alt="Imagen tuContapp" />
               </div>
             </Col>
-         {/*  </section> */}
+     
         </Row>
-        <Row>
-          {/* <section className="section-three"> */}
+        <Row className="section-three">
+          
             <Col sm={12} md={6} >
             <div className="div-imagen-num">
               <Image id="imageThree" src={imageThree} alt="Imagen tuContapp" />
@@ -96,9 +96,9 @@ export default function Home() {
                 </WhiteCardLanding>
               </div>
             </Col>
-          {/* </section> */}
+         
         </Row>
-        <Row>
+        <Row >
           <section className="section-four">
             <BlackCardLanding>
               <Row>
