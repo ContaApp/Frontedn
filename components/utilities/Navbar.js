@@ -1,28 +1,31 @@
-import { Badge, Navbar } from "react-bootstrap";
+import Link from "next/link";
+import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
 function NavigationBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="#home" >
           <img
             alt=""
             src="/logo.svg"
-            width="100"
-            height="30"
-            className="d-inline-block align-top"
+            className=""
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-nav<bar-nav">
-          <Nav className="me-auto">
-            <Nav.Link>INICIO</Nav.Link>
-            <Nav.Link >BENEFICIOS</Nav.Link>
-            <Nav.Link >INICIAR SESION</Nav.Link>
-            <Badge pill bg="success">UNETE A TUCONTAPP</Badge>
-          </Nav>
+          <div className="d-flex justify-content-end link-font col-12 col-md-12">
+            <Nav>
+              <Nav.Link className="px-4">INICIO</Nav.Link>
+              <Nav.Link className="px-4">BENEFICIOS</Nav.Link>
+              <Nav.Link className="px-4 pb-4">INICIAR SESION</Nav.Link>
+              <Link href="/">
+                <button className="btn-contapp-navbar ">CREAR CUENTA</button>
+              </Link>
+            </Nav>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
