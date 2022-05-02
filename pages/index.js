@@ -98,7 +98,9 @@ export default function Home() {
             </Col>
          
         </Row>
-        <Row >
+     
+      </Container>
+      <Row className="row-container-black-card">
           <section className="section-four">
             <BlackCardLanding>
               <Row>
@@ -120,7 +122,7 @@ export default function Home() {
             </BlackCardLanding>
           </section >
         </Row>
-      </Container></div>
+      </div>
     </Layout>
   )
 }
