@@ -1,0 +1,31 @@
+@media screen and (max-width: 768px) {
+
+  
+.div-container-graphic-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+  // min-height: 300px;
+    overflow-x: scroll;
+  // background: green;
+    position: relative; 
+    height:auto;
+     width:80vw;
+    .graphic-bar{
+        height: 2000px;
+    }
+    canvas{
+        height: 2000px;
+    }
+}
+
+.div-container-graphic-circle{
+   margin-top: 32px; 
+   min-height: 100px;
+    //background: blue;
+}}
+
+.div-scroll{
+    overflow-x: scroll; 
+}
