@@ -1,11 +1,29 @@
 /* 
 Estilos de  Componente calendar
 */
-div.MuiToolbar-root{
-    background: $color-green;
+div.MuiToolbar-root {
+  background: $color-green;
 }
 
 h4.MuiTypography-root {
-    color: $color-white;
+  color: $color-white;
+}
+
+.btn-contapp-navbar {
+  height: 36px;
+  background: #6abf4b;
+  border-radius: 100px;
+  color: white;
+  border: none;
+  padding: 0 24px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 27px;
+  margin-left: 32px;
+  &:hover {
+    background: #368E1A;
+  }
 }
 
