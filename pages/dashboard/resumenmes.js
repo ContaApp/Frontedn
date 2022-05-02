@@ -1,21 +1,23 @@
-import { Col, Row} from 'react-bootstrap';
+import { Col, Row, Button} from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
-import Layout from '../components/utilities/Layout';
-import LayoutPage from '../components/utilities/layout-page/LayoutPages';
+import Layout from '../../components/utilities/Layout';
+import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
 
-import TableResumenISRMonth from '../components/utilities/Tables/TableResumenISRMonth';
-import TableResumenIVAMonth from '../components/utilities/Tables/TableResumenIVAMonth';
-import ButtonPage from '../components/utilities/ButtonPage';
-import Calendar from '../components/utilities/Calendar';
+import TableResumenISRMonth from '../../components/utilities/Tables/TableResumenISRMonth';
+import TableResumenIVAMonth from '../../components/utilities/Tables/TableResumenIVAMonth';
+import ButtonPage from '../../components/utilities/ButtonPage';
+import Calendar from '../../components/utilities/Calendar';
 //import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieISRCobranza from '../components/Lotties/Lottie-isr-cobranza';
-import imageResumen from '../public/assets/images/Resume-bro.svg'
+import LottieISRCobranza from '../../components/Lotties/Lottie-isr-cobranza';
+import imageResumen from '../../public/assets/images/Resume-bro.svg'
 
-import next from '../public/assets/icons/Next.svg';
-import prev from '../public/assets/icons/Previus.svg';
+import next from '../../public/assets/icons/Next.svg';
+import prev from '../../public/assets/icons/Previus.svg';
 
 export default function ResumenDelMes() {
+    const router = useRouter();
     return (
         <Layout>
         
@@ -66,12 +68,12 @@ export default function ResumenDelMes() {
                         
                             <Col sm={12}>
                                     <div className="div-container-buttons-pages-card">
-                                        <ButtonPage className="btn-pages-general-np">
+                                        <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/resumencalculoiva')}>
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
-                                        </ButtonPage>
-                                        <ButtonPage className="btn-pages-general">
+                                        </Button>
+                                        <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/dashboardHome')}>
                                             <span className="text-btn-pages-general" >Nuevo Cálculo</span>
-                                        </ButtonPage>
+                                        </Button>
 
                                     </div>
                             </Col>

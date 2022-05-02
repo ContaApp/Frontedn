@@ -1,21 +1,23 @@
 import { Col, Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
-import Layout from '../components/utilities/Layout';
-import LayoutPage from '../components/utilities/layout-page/LayoutPages';
+import Layout from '../../components/utilities/Layout';
+import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
 
-import StepperIVA from '../components/utilities/Steppers/StepperIVA';
-import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieIVAAcreditable from '../components/Lotties/Lottie-iva-a-acreditar';
+import StepperIVA from '../../components/utilities/Steppers/StepperIVA';
+import InputMoney from '../../components/utilities/Input/Input-money-pages';
+import LottieIVAAcreditable from '../../components/Lotties/Lottie-iva-a-acreditar';
 
-import next from '../public/assets/icons/Next.svg';
-import prev from '../public/assets/icons/Previus.svg';
+import next from '../../public/assets/icons/Next.svg';
+import prev from '../../public/assets/icons/Previus.svg';
 
 export default function IVADeducciones() {
+    const router = useRouter();
     return (
         <Layout>
             <Col sm={12} md={12}>
-                <StepperIVA num='4' />
+                <StepperIVA num='3' />
             </Col>
 
             <LayoutPage>
@@ -48,10 +50,10 @@ export default function IVADeducciones() {
                                         <InputMoney nombre="IVA para Acreditar" idInput="Input-ivaAcreditar" />
                                     </div>
                                     <div className="div-container-buttons-card">
-                                        <Button className="btn-pages-np">
+                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/ivaretenido')}>
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
-                                        <Button className="btn-pages-np">
+                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/resumencalculoiva')}>
                                             <Image className="icon-btn-pages" src={next} alt="Siguiente" />
                                         </Button>
 

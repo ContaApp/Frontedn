@@ -1,5 +1,6 @@
 import { Container, Row, Col , Button} from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
 import imageZero from '../public/assets/images/landing/00-img-landing.svg'
 import imageOne from '../public/assets/images/landing/01-img-landing.svg';
@@ -19,6 +20,7 @@ import ButtonLanding from "../components/landing/Button-landing";
 import LottieLanding from "../components/landing/Lottie-landing";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <Layout >
       <div className="div-container">
@@ -30,7 +32,7 @@ export default function Home() {
                 <div className="hero">
                   <h2 className="text-hero">Realiza el <span className="span-primary-hero">cálculo </span> de tus impuestos</h2>
                   <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía!, </span><br></br><span className="span-secundary-hero">Calculos para personas fisicas con actividad profesional y empresarial.</span></p>
-                  <div className="container-hero-button-landing"><Button className="btn-landing"><span className="text-btn-landing">UNETE A tuContapp</span></Button></div>
+                  <div className="container-hero-button-landing"><Button className="btn-landing" onClick={()=> router.push('/register')}><span className="text-btn-landing">UNETE A tuContapp</span></Button></div>
                 </div>
               </Col>
               <Col sm={12} md={6}>
@@ -110,7 +112,7 @@ export default function Home() {
                     <p className="text-span"><span className="span-primary-blackcard">Autonomía </span> 
                     <span className="span-secundary-blackcard">en tus declaraciones</span></p>
                     <p className="text-p">¡Presenta tus declaraciones de manera correcta!</p>
-                    <Button className="btn-landing">
+                    <Button className="btn-landing" onClick={()=> router.push('/register')}>
                       <span className="text-btn-landing">UNETE A tuContapp</span>
                     </Button>
                   </div>

@@ -1,23 +1,25 @@
-import { Col, Row} from 'react-bootstrap';
+import { Col, Row, Button} from 'react-bootstrap';
 import Image from 'next/image';
+import {useRouter} from 'next/router';
 
-import Layout from '../components/utilities/Layout';
-import LayoutPage from '../components/utilities/layout-page/LayoutPages';
+import Layout from '../../components/utilities/Layout';
+import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
 
-import StepperIVA from '../components/utilities/Steppers/StepperIVA';
-import TableResumenIVA from '../components/utilities/Tables/TableResumenIVA';
-import ButtonPage from '../components/utilities/ButtonPage';
+import StepperISR from '../../components/utilities/Steppers/StepperISR';
+import TableResumenISR from '../../components/utilities/Tables/TableResumenISR';
+import ButtonPage from '../../components/utilities/ButtonPage';
 //import InputMoney from '../components/utilities/Input/Input-money-pages';
 //import LottieISRCobranza from '../components/Lotties/Lottie-isr-cobranza';
 
-import next from '../public/assets/icons/Next.svg';
-import prev from '../public/assets/icons/Previus.svg';
+import next from '../../public/assets/icons/Next.svg';
+import prev from '../../public/assets/icons/Previus.svg';
 
-export default function ResumenCalculoIVA() {
+export default function ResumenCalculoISR() {
+    const router = useRouter();
     return (
         <Layout>
             <Col sm={12} md={12}>
-                <StepperIVA num='3' />
+                <StepperISR num='5' />
             </Col>
 
             <LayoutPage>
@@ -25,7 +27,7 @@ export default function ResumenCalculoIVA() {
                 <Col sm={12} md={12}>
                     <h1 className="title-card">Resumen de Cálculo de
                         <span className="span-title-card">
-                            IVA
+                            ISR
                         </span>
                     </h1>
                 </Col>
@@ -35,17 +37,17 @@ export default function ResumenCalculoIVA() {
                         <Row>
                             <Col sm={12} md={12}>
                                 <div className="div-container-table-resumenisr-card">
-                                        <TableResumenIVA/>
+                                        <TableResumenISR/>
                                 </div>
                             </Col>
                             <Col sm={12}>
                                     <div className="div-container-buttons-pages-card">
-                                        <ButtonPage className="btn-pages-general-np">
+                                        <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/isrretenido')}>
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
-                                        </ButtonPage>
-                                        <ButtonPage className="btn-pages-general">
-                                            <span className="text-btn-pages-general" >Resumen Mensual</span>
-                                        </ButtonPage>
+                                        </Button>
+                                        <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/ivacobrado')}>
+                                            <span className="text-btn-pages-general" >IR A CALCULO IVA</span>
+                                        </Button>
 
                                     </div>
                             </Col>

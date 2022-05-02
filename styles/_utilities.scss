@@ -28,7 +28,12 @@ h4.MuiTypography-root {
     color: $color-orange;
     background: none;
 }
-
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+    circle{
+        background: $color-orange;
+    }
+    
+} 
 .css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
     color: $color-green;
 }

@@ -1,4 +1,5 @@
 import react from 'react';
+import {useRouter} from 'next/router';
 import LayoutPages from '../components/utilities/layout-page/LayoutPages';
 import Layout from '../components/utilities/Layout';
 import TextField from '@mui/material/TextField';
@@ -22,6 +23,7 @@ const styles = theme => ({
 });
 
 function Register() {
+    const router = useRouter();
     return (
         <Layout>
             <section className="register-page-container">
@@ -99,7 +101,7 @@ function Register() {
                         variant="outlined"
                         className='register-input'
                     />
-                    <Button className="Button-Register">
+                    <Button className="Button-Register" onClick={()=> router.push('/')}>
                         <span className="text-btn-landing">Crear cuenta</span>
                     </Button>
                 </form>
