@@ -42,6 +42,7 @@ export default function Home() {
           </Hero>
           </section>
         </Row>
+        <a name="section-one">
         <Row className="section-one">
 
            
@@ -60,8 +61,9 @@ export default function Home() {
               </WhiteCardLanding>
             </div>
           </Col>
-         
+          
         </Row>
+        </a>
         <Row className="section-two">
          
             <Col sm={12} md={6} >

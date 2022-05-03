@@ -69,6 +69,9 @@ color: $color-white;
 .btn-landing{
     width: 213px;
 height: 32px;
+&:hover {
+    background: $color-green-hover;
+  }
 
 
 background-color: $color-green;

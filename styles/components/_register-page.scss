@@ -13,7 +13,7 @@
     text-align: center;
     max-width: 513px;
     width: 100%;
-    max-height: 620px;
+    max-height: 650px;
     padding: 1rem;
     background-color: $color-semi-white;
     box-shadow: 0px 4px 32px rgba(0, 0, 0, 0.25);
@@ -69,4 +69,7 @@ border-radius: 100px;
 margin-top: 32px;
 margin-bottom: 32px;
 border: none;
+&:hover {
+    background: $color-green-hover;
+  }
 }
