@@ -1,4 +1,4 @@
-import react from 'react';
+import {react, useState} from 'react';
 import {useRouter} from 'next/router';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,7 +10,6 @@ import { Box } from '@mui/material';
 import { fontFamily } from '@mui/system';
 import { Button } from 'react-bootstrap';
 import LayoutPage from '../components/utilities/layout-page/LayoutPages';
-
 // Aqui se importa el servicio
 import {createAccount} from '../services/users/index';
 
@@ -47,6 +46,7 @@ const schemaRegister = yup.object({
 
 function Register() {
     const router = useRouter();
+    const [message, setMessage ] = useState(null);
 
     const { register, handleSubmit, formState:{ errors } } = useForm({
         resolver: yupResolver(schemaRegister)
@@ -64,6 +64,15 @@ function Register() {
         console.log('Data response:',response);
         console.log('Data dataJson:',dataJson);
 
+        if (response.status === 200){
+            router.push('/login')
+            return
+        }else {
+           // Si ocurre un error
+        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
+       
+        }
+        
      }
      console.log(errors);
     return (
@@ -165,6 +174,9 @@ function Register() {
                     <Button type ="submit" className="Button-Register" >
                         <span className="text-btn-landing">Crear cuenta</span>
                     </Button>
+                    {
+                        message &&  <p className="text-danger" > {message}</p>
+                    }
                 </form>
             </section>
         </Layout>
