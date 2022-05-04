@@ -42,7 +42,7 @@ function Login() {
         if (response.status === 200){
           const token = dataJson.data.token;
         /* console.log('Tu token es:' , token); */
-        window.localStorage.setItem('LoggedDataUser',JSON.stringify(dataJson.data));
+        window.localStorage.setItem('LoggedDataUser',JSON.stringify(dataJson.data.token));
            router.push('/dashboard/dashboardHome')
             return
         }else {
