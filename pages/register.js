@@ -9,7 +9,6 @@ import TextField from '@mui/material/TextField';
 import { Box } from '@mui/material';
 import { fontFamily } from '@mui/system';
 import { Button } from 'react-bootstrap';
-import LayoutPage from '../components/utilities/layout-page/LayoutPages';
 // Aqui se importa el servicio
 import {createAccount} from '../services/users/index';
 
@@ -150,6 +149,7 @@ function Register() {
                         placeholder="Contraseña"
                         fullWidth
                         margin="normal"
+                        type="password"
                         InputLabelProps={{
                             style: { color: '#EBA53D' },
                             shrink: true
@@ -164,6 +164,7 @@ function Register() {
                         placeholder="Confirmar contraseña"
                         fullWidth
                         margin="normal"
+                        type="password"
                         InputLabelProps={{
                             style: { color: '#EBA53D' },
                             shrink: true
@@ -171,7 +172,7 @@ function Register() {
                         variant="outlined"
                         className='register-input'
                     /><p className = "text-danger">{errors.passwordConfirm?.message}</p>
-                    <Button type ="submit" className="Button-Register" >
+                    <Button type ="submit" className="btn-contapp-navbar" >
                         <span className="text-btn-landing">Crear cuenta</span>
                     </Button>
                     {

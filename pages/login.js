@@ -83,6 +83,7 @@ function Login() {
                     placeholder="Ingrese Contraseña"
                     fullWidth
                     margin="normal"
+                    type="password"
                     InputLabelProps={{
                         style: { color: '#EBA53D' },
                         shrink: true
