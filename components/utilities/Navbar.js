@@ -6,6 +6,16 @@ import { useRouter } from 'next/router';
 
 function NavigationBar() {
   const router = useRouter();
+  const handleClick = (e)=>  {
+    e.preventDefault();
+    if(router.previousPage === 'register'  || router.previousPage === 'login' ) {
+      window.scrollTo({
+        top: document.getElementById(elID).offsetTop - 60,
+        behavior: 'smooth',
+      });
+    }
+    router.push('/#section-one')
+  }
   return (
     <Navbar expand="lg">
       <Container>
@@ -21,11 +31,9 @@ function NavigationBar() {
           <div className="d-flex justify-content-end link-font col-12 col-md-12">
             <Nav>
               <Nav.Link className="px-4" onClick={()=> router.push('/')}>INICIO</Nav.Link>
-              <Nav.Link className="px-4" href="/#section-one">BENEFICIOS</Nav.Link>
+             <Nav.Link className="px-4" href={'/#section-one'}>BENEFICIOS</Nav.Link>
               <Nav.Link className="px-4 pb-4" onClick={()=> router.push('/login')}>INICIAR SESION</Nav.Link>
-              <Link href="/">
-                <button className="btn-contapp-navbar " onClick={()=> router.push('/register')}>CREAR CUENTA</button>
-              </Link>
+              <button className="btn-contapp-navbar " onClick={()=> router.push('/register')}>CREAR CUENTA</button>
             </Nav>
           </div>
         </Navbar.Collapse>

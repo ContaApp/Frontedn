@@ -172,7 +172,7 @@ function Register() {
                         variant="outlined"
                         className='register-input'
                     /><p className = "text-danger">{errors.passwordConfirm?.message}</p>
-                    <Button type ="submit" className="Button-Register" >
+                    <Button type ="submit" className="btn-contapp-navbar" >
                         <span className="text-btn-landing">Crear cuenta</span>
                     </Button>
                     {
