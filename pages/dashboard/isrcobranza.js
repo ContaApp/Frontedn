@@ -42,8 +42,10 @@ export default function ISRCobranza() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">Por el momento solo se puede calcular ejercicios fiscales de año 2022.</p>
-                                    <p className="p-text-card">Se iniciará con los impuestos relacionados al ISR y posteriormente con el IVA.</p>
+                                    <p className="p-text-card">El ISR que se acumulara es aquel que proveendra de tus
+                                        ingresos efectivamente cobrados en el mes, para este
+                                        deberas tomar los subtotales de todos tus ingresos
+                                        provenientes de tu actividad.</p>
                                     <div className="div-container-input-card">
                                         <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" />
                                     </div>

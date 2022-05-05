@@ -22,7 +22,7 @@ function NavigationBar() {
             <Nav>
               <Nav.Link className="px-4" onClick={()=> router.push('/')}>INICIO</Nav.Link>
               <Nav.Link className="px-4" href="/#section-one">BENEFICIOS</Nav.Link>
-              <Nav.Link className="px-4 pb-4">INICIAR SESION</Nav.Link>
+              <Nav.Link className="px-4 pb-4" onClick={()=> router.push('/login')}>INICIAR SESION</Nav.Link>
               <Link href="/">
                 <button className="btn-contapp-navbar " onClick={()=> router.push('/register')}>CREAR CUENTA</button>
               </Link>
