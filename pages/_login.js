@@ -26,7 +26,7 @@ function Login() {
                         shrink: true
                     }}
                     variant="outlined"
-                    className='register-input'
+                    className='login-input'
                 />
                 <TextField
                     id="outlined-full-width"
@@ -39,7 +39,7 @@ function Login() {
                         shrink: true
                     }}
                     variant="outlined"
-                    className='register-input'
+                    className='login-input'
                 />
                 <Button className="btn-contapp-navbar" onClick={()=> router.push('/dashboard/dashboardHome')}>
                     <span className="text-btn-landing">Iniciar Sesión</span>

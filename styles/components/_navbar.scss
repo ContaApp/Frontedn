@@ -9,6 +9,17 @@
     color: #616161;
   }
 
-.link-item-separation{
+.selection-style{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+    &:hover {
+      background: #368E1A;
+  }
+}
 
+.margin-right{
+  margin-right: 3rem;
 }

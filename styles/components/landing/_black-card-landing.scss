@@ -80,7 +80,6 @@ border: none;
 
 .div-datos-blackcard{
     padding: 32px;
-
    // background: floralwhite;
     width: 100%;
     height: auto;
@@ -89,4 +88,15 @@ border: none;
     justify-content: space-around;
     align-items: center;
 
+}
+
+@media screen and (min-width: 900px) {
+    .div-datos-blackcard {
+        align-items: start;
+        text-align: left;
+    }
+    .text-p{
+        justify-content:start;
+        color:$color-white;
+        }
 }

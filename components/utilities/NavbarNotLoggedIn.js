@@ -3,7 +3,7 @@ import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
-function NavigationBar() {
+function NavigationBarNotLogedIn() {
   return (
     <Navbar expand="lg">
       <Container>
@@ -31,4 +31,4 @@ function NavigationBar() {
     </Navbar>
   );
 }
-export default NavigationBar;
+export default NavigationBarNotLogedIn;

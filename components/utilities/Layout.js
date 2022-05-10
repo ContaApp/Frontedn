@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import NavBar from './Navbar'
+import NavBar from './NavbarNotLoggedIn'
+import NavigationBarLogedIn from "./NavbarLoggedIn"
 import Footer from './Footer'
 
 function Layout({children}) {
