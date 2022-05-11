@@ -1,6 +1,11 @@
+import { react, useState, useContext } from 'react';
+import { ContextInputsCards } from '../../contexts/ContextInputsCards';
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 import { Col, Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/utilities/Layout';
 import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
@@ -12,8 +17,43 @@ import LottieIVARetenido from '../../components/Lotties/Lottie-iva-retenido';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
-export default function IVADeducciones() {
+const schemaIvaRetenido = yup.object({
+    vatWH: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+})
+
+export default function IVARetenido() {
+    const { responseIvaForm, setResponseIvaForm } = useContext(ContextInputsCards);
     const router = useRouter();
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schemaIvaRetenido)
+    });
+
+    const onSubmitInput = async (data) => {
+
+        console.log('Enviando data...');
+        console.log('la data es:', data);
+        setResponseIvaForm({ ...responseIvaForm, vatWH: data });
+        router.push('/dashboard/ivaacreditable');
+        console.log('la data acumulada es:', responseIvaForm);
+
+
+        //Aqui se maneja la promesa
+        /* const response = await createAccount(data);
+        const dataJson = await response.json();
+ 
+        console.log('Data response:',response);
+        console.log('Data dataJson:',dataJson);
+ 
+        if (response.status === 200){
+            router.push('/login')
+            return
+        }else {
+           // Si ocurre un error
+        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
+       
+        }  */
+        console.log(errors);
+    }
     return (
         <Layout>
             <Col sm={12} md={12}>
@@ -43,21 +83,23 @@ export default function IVADeducciones() {
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
                                     <p className="p-text-card">Ingresa la suma del IVA retenido de las facturas cobradas
-en el mes, este lo podrias encontrar en el desgloce de 
-tus facturas efectivamente cobradas.</p>
-                                    
-                                    <div className="div-container-input-card">
-                                        <InputMoney nombre="IVA Retenido" idInput="Input-ivaRetenido" />
-                                    </div>
-                                    <div className="div-container-buttons-card">
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/ivadeducciones')}>
-                                            <Image className="icon-btn-pages" src={prev} alt="Atrás" />
-                                        </Button>
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/ivaacreditable')}>
-                                            <Image className="icon-btn-pages" src={next} alt="Siguiente" />
-                                        </Button>
+                                        en el mes, este lo podrias encontrar en el desgloce de
+                                        tus facturas efectivamente cobradas.</p>
+                                    <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
+                                        <div className="div-container-input-card">
+                                            <InputMoney nombre="IVA Retenido" idInput="Input-ivaRetenido" register={register} field='vatWH' />
+                                            <p className="text-danger">{errors.vatWH?.message}</p>
+                                        </div>
+                                        <div className="div-container-buttons-card">
+                                            <Button className="btn-pages-np" type="submit" onClick={(e) => { e.preventDefault(), router.push('/dashboard/ivadeducciones') }}>
+                                                <Image className="icon-btn-pages" src={prev} alt="Atrás" />
+                                            </Button>
+                                            <Button className="btn-pages-np" type="submit" /* onClick={()=> router.push('/dashboard/ivaacreditable')} */>
+                                                <Image className="icon-btn-pages" src={next} alt="Siguiente" />
+                                            </Button>
 
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </Col>
                         </Row>
