@@ -1,17 +1,19 @@
-import '../styles/app.scss'
+import '../styles/app.scss';
+import ContextInputsCardsProvider from '../contexts/ContextInputsCards';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-
-// pick a date util library
-//import MomentUtils from '@date-io/moment';
+import esLocale from 'date-fns/locale/es';
 import DateFnsUtils from '@date-io/date-fns';
-//import LuxonUtils from '@date-io/luxon';
+
 
 function MyApp({ Component, pageProps }) {
 return (
-<MuiPickersUtilsProvider utils={DateFnsUtils}>
+  <ContextInputsCardsProvider>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={esLocale}>
       <Component {...pageProps} />
     </MuiPickersUtilsProvider>
-   
+    </ContextInputsCardsProvider>
+
+  
 )
 }
 

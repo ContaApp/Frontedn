@@ -1,9 +1,15 @@
+import { react, useState, useContext } from 'react';
+import {ContextInputsCards} from '../../contexts/ContextInputsCards';
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 import { Col, Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/utilities/Layout';
 import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
+
 
 import StepperISR from '../../components/utilities/Steppers/StepperISR';
 import InputMoney from '../../components/utilities/Input/Input-money-pages';
@@ -12,8 +18,43 @@ import LottieISRCobranza from '../../components/Lotties/Lottie-isr-cobranza';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
+//se importa servicio 
+import {createLogbooks} from '../../services/logbooks/index';
+
+const schemaIsrCobranza = yup.object({
+    incomes: yup.number('Ingrese solo datos numéricos').min(0, "Must be more than 0").positive('Ingrese una cantidad valida').required('El campo es requerido')
+})
+
 export default function ISRCobranza() {
+    const { responseIsrForm, setResponseIsrForm} = useContext(ContextInputsCards);
     const router = useRouter();
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schemaIsrCobranza)});
+
+    const onSubmitInput = async (data) => {
+
+        console.log('Enviando data...')
+        console.log('la data es:', data)
+        setResponseIsrForm({ ...responseIsrForm, incomes: data  })
+
+        //Aqui se maneja la promesa
+       /*  const response = await createLogbooks(data);
+        const dataJson = await response.json();
+ 
+        console.log('Data response:',response);
+        console.log('Data dataJson:',dataJson);
+ 
+        if (response.status === 200){ */
+            router.push('/dashboard/isrdeducible')
+       /*      return
+        }else {
+           // Si ocurre un error
+        //setMessage ('No pudimos registrar su respuesta, vuelve a intentarlo'); 
+       
+        }  */
+        console.log(errors);
+    }
+
     return (
         <Layout>
             <Col sm={12} md={12}>
@@ -46,18 +87,24 @@ export default function ISRCobranza() {
                                         ingresos efectivamente cobrados en el mes, para este
                                         deberas tomar los subtotales de todos tus ingresos
                                         provenientes de tu actividad.</p>
-                                    <div className="div-container-input-card">
-                                        <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" />
-                                    </div>
-                                    <div className="div-container-buttons-card">
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/dashboardHome')}>
-                                            <Image className="icon-btn-pages" src={prev} alt="Atrás" />
-                                        </Button>
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/isrdeducible')}>
-                                            <Image className="icon-btn-pages" src={next} alt="Siguiente" />
-                                        </Button>
+                                    <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
+                                        <div className="div-container-input-card">
+                                            <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" register={register} field='incomes' />
 
-                                    </div>
+                                        </div>
+                                        <div>
+                                            <p className="text-danger">{errors.incomes?.message}</p>
+                                        </div>
+                                        <div className="div-container-buttons-card">
+                                            <Button className="btn-pages-np" type="submit" onClick={(e) => { e.preventDefault(), router.push('/dashboard/dashboardHome') }}>
+                                                <Image className="icon-btn-pages" src={prev} alt="Atrás" />
+                                            </Button>
+                                            <Button className="btn-pages-np" type="submit" /* onClick={()=>  */>
+                                                <Image className="icon-btn-pages" src={next} alt="Siguiente" />
+                                            </Button>
+
+                                        </div>
+                                    </form>
                                 </div>
                             </Col>
                         </Row>
