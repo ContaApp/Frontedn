@@ -79,7 +79,7 @@ function Register() {
             <section className="register-page-container">
                 <form className="register-page-section-form" onSubmit={handleSubmit(onSubmitRegister)}>
                     <h2 className='title-card text-center'>Crear una <span className='yellow-text'>cuenta</span></h2>
-                    <p className='p-text-card text-center'>
+                    <p className='p-text-card text-center padding-text'>
                         Persona fisica con actividad profesional y empresarial
                     </p>
                     <TextField {...register("name")}
