@@ -53,10 +53,11 @@ export default function ISRRetenido() {
         }  */
 
     
-    const {objetLimit}= limitCalculos;
+    const {objetLimitIsr}= limitCalculos;
     const {incomes}= responseIsrForm;
-
-    const multiplicacion = objetLimit.lowerLimit * incomes.incomes;
+        console.log('el lowerLimit',objetLimitIsr.lowerLimit);
+        console.log('incomes', incomes.incomes);
+    const multiplicacion = (objetLimitIsr.lowerLimit * incomes.incomes);
     console.log('La multiplicacion es:', multiplicacion);
     
         console.log(errors);
