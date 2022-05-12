@@ -22,7 +22,7 @@ import prev from '../../public/assets/icons/Previus.svg';
 import {createLogbooks} from '../../services/logbooks/index';
 
 const schemaIsrCobranza = yup.object({
-    incomes: yup.number('Ingrese solo datos numéricos').min(0, "Must be more than 0").positive('Ingrese una cantidad valida').required('El campo es requerido')
+    incomes: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function ISRCobranza() {
@@ -33,26 +33,15 @@ export default function ISRCobranza() {
 
     const onSubmitInput = async (data) => {
 
+            
+       
+
         console.log('Enviando data...')
         console.log('la data es:', data)
-        setResponseIsrForm({ ...responseIsrForm, incomes: data  })
+        setResponseIsrForm({incomes: data.incomes  })
+        console.log('la data Acomulda es:', responseIsrForm)
+        router.push('/dashboard/isrdeducible')
 
-        //Aqui se maneja la promesa
-       /*  const response = await createLogbooks(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){ */
-            router.push('/dashboard/isrdeducible')
-       /*      return
-        }else {
-           // Si ocurre un error
-        //setMessage ('No pudimos registrar su respuesta, vuelve a intentarlo'); 
-       
-        }  */
-        console.log(errors);
     }
 
     return (

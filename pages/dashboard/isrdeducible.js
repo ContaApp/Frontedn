@@ -17,16 +17,16 @@ import LottieISRDeducible from '../../components/Lotties/Lottie-isr-deducible';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
-//se importa servicio 
-import { searchRange } from '../../services/tablesISR/index';
+import { calculateIsrProfit } from '../../lib/calculosISR';
+
 const schemaIsrDeducible = yup.object({
-    expenses: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    expenses: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function ISRDeducible() {
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
-    const {responseInputsDate, setResponseInputsDate} = useContext(ContextInputsCards);
     const {limitCalculos, setLimitCalculos} = useContext(ContextInputsCards);
+   
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrDeducible)
@@ -36,34 +36,10 @@ export default function ISRDeducible() {
 
         console.log('Enviando data...');
         console.log('la data es:', data);
-        setResponseIsrForm({ ...responseIsrForm, expenses: data })
-        
+        setResponseIsrForm({ ...responseIsrForm, expenses: data.expenses })
         console.log('la data acumulada es:', responseIsrForm);
-        
-        //Aqui se maneja la promesa
-        const objetSearchRange={
-            ...responseInputsDate, ...responseIsrForm.incomes
-        }
-
-    
-        console.log('El objeto que buscará',objetSearchRange);
-            const {month, year, incomes}= objetSearchRange
-        const response = await searchRange(month,  year, incomes);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
-        
-        const objetLimitIsr= dataJson.data.dataFound[0];
-        
-        setLimitCalculos({...limitCalculos, objetLimitIsr:objetLimitIsr})
-
-        if (response.status === 200){
-            console.log('El objeto Limit es:',objetLimitIsr )
-            console.log('El objeto guardandolo en el contexto',limitCalculos )
-            router.push('/dashboard/isrretenido')
-            return
-        }
+         
+        router.push('/dashboard/isrretenido')
         console.log(errors);
     }
     return (

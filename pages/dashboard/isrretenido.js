@@ -17,50 +17,128 @@ import LottieISRRetenido from '../../components/Lotties/Lottie-isr-retenido';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
+//se importa servicio 
+import { searchRange } from '../../services/tablesISR/index';
+
+import { calculateIsrProfit, calculateIsracumulated, calculateIsrResult, calculateIsrItToPay } from '../../lib/calculosISR';
+
+
 const schemaIsrRetenido = yup.object({
-    whitholdedIncomeTax: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    whitholdedIncomeTax: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function ISRRetenido() {
+    const { responseInputsDate, setResponseInputsDate } = useContext(ContextInputsCards);
+    const { limitCalculos, setLimitCalculos } = useContext(ContextInputsCards);
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
-    const {limitCalculos} = useContext(ContextInputsCards);
     const router = useRouter();
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrRetenido)
     });
+
     const onSubmitInput = async (data) => {
-        console.log('limitCalculos :', limitCalculos );
-        console.log('Enviando data...');
-        console.log('la data es:', data);
-        setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data });
-        router.push('/dashboard/resumencalculoisr');
-        console.log('la data acumulada es:', responseIsrForm);
+        try {
+            // la resta de cobranza - deducible
+            const isrProfit = calculateIsrProfit(responseIsrForm.incomes, responseIsrForm.expenses)
+            console.log('isrProfit: ', isrProfit)
+            // Busca los limites
+            const objetSearchRange = {
+                ...responseInputsDate, profit: isrProfit 
+            }
+            console.log(objetSearchRange)
 
-        //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){
-            router.push('/login')
-            return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
-       
-        }  */
+            console.log('El objeto que buscará', objetSearchRange);
+            const { month, year, profit } = objetSearchRange;
+            const response = await searchRange(month, year, profit);
+            const dataJson = await response.json();
 
+            console.log('Data response:', response);
+            console.log('Data dataJson:', dataJson);
+            if(response.status === 200) {
+                const objetLimitIsr = dataJson.data.dataFound[0];
+
+                console.log('objetLimitIsr: ', objetLimitIsr)
     
-    const {objetLimitIsr}= limitCalculos;
-    const {incomes}= responseIsrForm;
-        console.log('el lowerLimit',objetLimitIsr.lowerLimit);
-        console.log('incomes', incomes.incomes);
-    const multiplicacion = (objetLimitIsr.lowerLimit * incomes.incomes);
-    console.log('La multiplicacion es:', multiplicacion);
+                // El acumulado comos e calcula  a partir de que datos
+                const isrResult = calculateIsrResult(objetLimitIsr, isrProfit)
     
-        console.log(errors);
+                console.log('calculateIsrResult: ', isrResult )
+    
+                const isrItToPay = calculateIsrItToPay(isrResult, Number(data.whitholdedIncomeTax))
+    
+                console.log('isrItToPay: ', isrItToPay )
+                // checar nombres
+                setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data.whitholdedIncomeTax, profit: isrProfit, acumulated: isrProfit, result: isrResult, itToPay:isrItToPay, objetLimitIsr:objetLimitIsr});
+    
+                router.push('/dashboard/resumencalculoisr');
+            }
+
+            
+
+
+            // setTimeout(function () {
+            //     setTimeout(function () {
+            //         console.log('El objeto LimitCalculos guardandolo en el contexto', limitCalculos)
+            //         router.push('/dashboard/resumencalculoisr');
+            //     }, 2000)
+
+            //     console.log('Enviando data...');
+            //     console.log('la data es:', data);
+            //     const acumulated = calculateIsracumulated(objetoProfit)
+            //     console.log('acumulated', acumulated)
+            //     const objetoAcumulated = { acumulated: acumulated };
+                
+            //     setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data.whitholdedIncomeTax, profit: objetoProfit.profit, acumulated: objetoAcumulated.acumulated});
+
+            
+            // }, 5000);
+
+            // setTimeout(async function () {
+            //     //Aqui se maneja la promesa
+            //     const objetSearchRange = {
+            //         ...responseInputsDate, ...objetoProfit
+            //     }
+            //     console.log('El objeto que buscará', objetSearchRange);
+            //     const { month, year, profit } = objetSearchRange;
+            //     const response = await searchRange(month, year, profit);
+            //     const dataJson = await response.json();
+
+            //     console.log('Data response:', response);
+            //     console.log('Data dataJson:', dataJson);
+
+            //     const objetLimitIsr = dataJson.data.dataFound[0];
+
+            //     setLimitCalculos(objetLimitIsr)
+
+            //     if (response.status === 200) {
+            //         console.log('El objeto Limit es:', objetLimitIsr)
+            //         console.log('El objeto guardandolo en el contexto', limitCalculos)
+                
+            //         return
+            //     }
+            // }, 2000);
+
+            // const p = calculateIsrProfit(responseIsrForm)
+            // console.log('profit', p)
+            // const objetoProfit = { profit: p };
+            // console.log('profit en objeto:', objetoProfit.profit)
+
+
+
+            //router.push('/dashboard/resumencalculoisr');
+
+
+            /*   const {objetLimitIsr}= limitCalculos;
+            const {incomes}= responseIsrForm;
+                console.log('el lowerLimit',objetLimitIsr.lowerLimit);
+                console.log('incomes', incomes.incomes);
+            const multiplicacion = (objetLimitIsr.lowerLimit * incomes.incomes);
+            console.log('La multiplicacion es:', multiplicacion); */
+        } catch (error) {
+            console.error('Error: ', error)
+        }
+        
     }
     return (
         <Layout>

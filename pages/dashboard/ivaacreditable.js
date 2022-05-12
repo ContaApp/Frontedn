@@ -20,8 +20,11 @@ import prev from '../../public/assets/icons/Previus.svg';
 //se importa servicio 
 import { createLogbooks } from '../../services/logbooks/index';
 
+
+import { calculateVat } from '../../lib/calculosIVA';
+
 const schemaIvaAcreditable = yup.object({
-    vatAP: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    vatFAVOR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 
@@ -36,9 +39,13 @@ export default function IVADeducciones() {
     });
     const onSubmitInput = async (data) => {
 
+        //Calculo de vat
+        const ivaVat =calculateVat(responseIvaForm);
+        console.log('ivaVat: ', ivaVat);
+
         console.log('Enviando data...');
         console.log('la data es:', data);
-        setResponseIvaForm({ ...responseIvaForm, vatAP: data}); 
+        setResponseIvaForm({ ...responseIvaForm, vatFAVOR: data.vatFAVOR, vat:ivaVat}); 
     
         console.log('la data acumulada es:', responseIvaForm);
         
@@ -68,32 +75,34 @@ export default function IVADeducciones() {
                 }
             }*/
          
-       
+       console.log('soy el objeto responseInputsDate',responseInputsDate);
+       console.log('soy el objeto responseIsrForm',responseIsrForm);
+       console.log('soy el objeto responseIvaForm',responseIvaForm);
 
         const bodyData ={ 
             year:responseInputsDate.year,
             month: responseInputsDate.month,
             isr:{
-                incomes: responseIsrForm.incomes.incomes,
-            expenses:responseIsrForm.expenses.expenses,
-            profit:120,
-            fixRate:120,
-            itPercent: 120,
-            whitholdedIncomeTax:responseIsrForm.whitholdedIncomeTax.whitholdedIncomeTax,
-            itToPay: 1400
+                incomes: responseIsrForm.incomes,
+            expenses:responseIsrForm.expenses,
+            profit:responseIsrForm.profit,
+            fixRate:responseIsrForm.objetLimitIsr.fixedRate,
+            itPercent: responseIsrForm.objetLimitIsr.perCentAboveLowerLimit,
+            whitholdedIncomeTax:responseIsrForm.whitholdedIncomeTax,
+            itToPay: responseIsrForm.itToPay
                
             },
             iva:{
-                vatAP: data.vatAP,
-                vatAR: responseIvaForm.vatAR.vatAR,
-                vatWH: responseIvaForm.vatWH.vatWH,
-                vatFAVOR: responseIvaForm.vatFAVOR.vatFAVOR,
-                vat: 3400
+                vatAP: responseIvaForm.vatAP,
+                vatAR: responseIvaForm.vatAR,
+                vatWH: responseIvaForm.vatWH,
+                vatFAVOR: data.vatFAVOR,
+                vat: ivaVat
             }
         }
         console.log('El objeto a enviar en petición es:', bodyData);
 
-
+        setResponseInputsForm({bodyData});
          //Aqui se maneja la promesa
         //const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2FhMjRhYmU3ZDFmM2NlOWQ4Y2I2NyIsImlhdCI6MTY1MjIwNDE0MSwiZXhwIjoxNjUyODA4OTQxfQ.p8j-bDRKOFCv482FolmK3xSxduWgTemkog9jerBJ59o';
         const token= window.localStorage.getItem('LoggedDataUser');
@@ -142,8 +151,8 @@ export default function IVADeducciones() {
                                             es decir, no se podra utilizar de más</p>
                                         <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                             <div className="div-container-input-card">
-                                                <InputMoney nombre="IVA para Acreditar" idInput="Input-ivaAcreditar" register={register} field='vatAP' />
-                                                <p className="text-danger">{errors.vatAP?.message}</p>
+                                                <InputMoney nombre="IVA para Acreditar" idInput="Input-ivaAcreditar" register={register} field='vatFAVOR' />
+                                                <p className="text-danger">{errors.vatFAVOR?.message}</p>
                                             </div>
                                             <div className="div-container-buttons-card">
                                                 <Button className="btn-pages-np" type="submit" onClick={(e) => { e.preventDefault(), router.push('/dashboard/ivaretenido') }}>

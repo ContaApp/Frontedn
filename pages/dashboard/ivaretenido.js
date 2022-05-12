@@ -18,7 +18,7 @@ import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
 const schemaIvaRetenido = yup.object({
-    vatWH: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    vatWH: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function IVARetenido() {
@@ -32,7 +32,7 @@ export default function IVARetenido() {
 
         console.log('Enviando data...');
         console.log('la data es:', data);
-        setResponseIvaForm({ ...responseIvaForm, vatWH: data });
+        setResponseIvaForm({ ...responseIvaForm, vatWH: data.vatWH });
         router.push('/dashboard/ivaacreditable');
         console.log('la data acumulada es:', responseIvaForm);
 
