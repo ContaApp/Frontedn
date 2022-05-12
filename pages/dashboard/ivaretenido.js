@@ -82,9 +82,11 @@ export default function IVARetenido() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">Ingresa la suma del IVA retenido de las facturas cobradas
-                                        en el mes, este lo podrias encontrar en el desgloce de
-                                        tus facturas efectivamente cobradas.</p>
+                                    <p className="p-text-card">
+                                    Ingresa la suma del IVA retenido de las facturas cobradas
+                                    en el mes, este lo podrás encontrar en el desglose de
+                                    tus facturas efectivamente cobradas.
+                                    </p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="IVA Retenido" idInput="Input-ivaRetenido" register={register} field='vatWH' />

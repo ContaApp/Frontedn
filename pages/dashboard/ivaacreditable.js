@@ -146,9 +146,11 @@ export default function IVADeducciones() {
                                 </Col>
                                 <Col sm={12} md={7}>
                                     <div className="div-container-text-card">
-                                        <p className="p-text-card">El IVA para/por Acreditar se da cuando existe un saldo a favor con anterioridad y
-                                            se utiliza para disminuir el pago del mes a declarar. Este solo se podrá ingresar hasta el monto a pagar,
-                                            es decir, no se podra utilizar de más</p>
+                                        <p className="p-text-card"> 
+                                        El IVA para/por Acreditar se da cuando existe un saldo a favor con anterioridad y
+                                        se utiliza para disminuir el pago del mes a declarar. Este solo se podrá ingresar hasta el monto a pagar,
+                                        es decir, no se podrá utilizar de más.
+                                        </p>
                                         <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                             <div className="div-container-input-card">
                                                 <InputMoney nombre="IVA para Acreditar" idInput="Input-ivaAcreditar" register={register} field='vatFAVOR' />

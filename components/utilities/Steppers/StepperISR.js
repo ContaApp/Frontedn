@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
-import { Container, Row, Col} from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 const steps = [
   'ISR Cobranza',

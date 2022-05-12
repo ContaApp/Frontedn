@@ -81,8 +81,9 @@ export default function IVACobrado() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El IVA trasladado o cobrado, es el IVA que efectivamente
-                                        fue cobrado en el mes, este lo podras encontrar desglozado
+                                    <p className="p-text-card">
+                                        El IVA trasladado o cobrado, es el IVA que efectivamente
+                                        fue cobrado en el mes, este lo podras encontrar desglosado
                                         en tus facturas que efectivamente fueron cobradas en el
                                         mes.</p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
