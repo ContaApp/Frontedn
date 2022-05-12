@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import Layout from '../components/utilities/Layout';
 import TextField from '@mui/material/TextField';
-import {React, useState} from "react";
+import {React, useState, useContext} from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -38,8 +38,10 @@ function Login() {
 
         if (response.status === 200){
           const token = dataJson.data.token;
-        /* console.log('Tu token es:' , token); */
-        window.localStorage.setItem('LoggedDataUser',JSON.stringify(dataJson.data.token));
+        console.log('Tu token es:' , JSON.stringify(dataJson.data.token));
+        const tokenString= dataJson.data.token;
+        //console.log()
+        window.localStorage.setItem('LoggedDataUser',tokenString);
            router.push('/dashboard/dashboardHome')
             return
         }else {
