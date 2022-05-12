@@ -11,7 +11,10 @@ const ContextInputsCards = createContext()
     const [responseInputsForm, setResponseInputsForm] = useState({})
     const [responseInputsDate, setResponseInputsDate] = useState({})
     const [selectedDate, handleDateChange] = useState(new Date());
-    const data = {responseIsrForm, setResponseIsrForm, responseIvaForm, setResponseIvaForm, selectedDate, handleDateChange, responseInputsForm, setResponseInputsForm, responseInputsDate, setResponseInputsDate}
+    const [limitCalculos, setLimitCalculos] = useState({});
+    const data = {responseIsrForm, setResponseIsrForm, responseIvaForm, setResponseIvaForm,
+         selectedDate, handleDateChange, responseInputsForm, setResponseInputsForm,
+          responseInputsDate, setResponseInputsDate, limitCalculos, setLimitCalculos}
     return (
         <ContextInputsCards.Provider value={data}>
             {children}
