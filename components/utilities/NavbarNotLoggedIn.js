@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { Navbar } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import { useRouter } from 'next/router';
 
-function NavigationBar() {
+function NavigationBarNotLogedIn() {
   const router = useRouter();
   const handleClick = (e)=>  {
     e.preventDefault();
@@ -16,6 +15,7 @@ function NavigationBar() {
     }
     router.push('/#section-one')
   }
+
   return (
     <Navbar expand="lg">
       <Container>
@@ -32,7 +32,7 @@ function NavigationBar() {
             <Nav>
               <Nav.Link className="px-4" onClick={()=> router.push('/')}>INICIO</Nav.Link>
              <Nav.Link className="px-4" href={'/#section-one'}>BENEFICIOS</Nav.Link>
-              <Nav.Link className="px-4 pb-4" onClick={()=> router.push('/login')}>INICIAR SESION</Nav.Link>
+              <Nav.Link className="px-4 pb-4" onClick={()=> router.push('/login')}>INICIAR SESIÓN</Nav.Link>
               <button className="btn-contapp-navbar " onClick={()=> router.push('/register')}>CREAR CUENTA</button>
             </Nav>
           </div>
@@ -41,4 +41,4 @@ function NavigationBar() {
     </Navbar>
   );
 }
-export default NavigationBar;
+export default NavigationBarNotLogedIn;

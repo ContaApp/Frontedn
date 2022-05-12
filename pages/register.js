@@ -30,15 +30,15 @@ const styles = theme => ({
 });
 
 const schemaRegister = yup.object({
-    name: yup.string().min(3, 'La longitud min es de 3 caracteres').required('El campo es requerido'),
-    surName: yup.string().min(3, 'La longitud min es de 3 caracteres').required('El campo es requerido'),
-    rfc: yup.string().min(13, 'La longitud min es de 13 caracteres').max(13,'la longitud max es de 13 caracteres').required('El campo es requerido'),
-    email: yup.string().email('El email no es valido').required('El campo es requerido'),
-    password: yup.string().min(8, 'La longitud min es de 8 caracteres').required('El campo es requerido'),
+    name: yup.string().min(3, 'La longitud mínima es de 8 caracteres').required('Este campo es requerido'),
+    surName: yup.string().min(3, 'La longitud mínima es de 8 caracteres').required('Este campo es requerido'),
+    rfc: yup.string().min(13, 'La longitud mínima es de 13 caracteres').max(13,'la longitud max es de 13 caracteres').required('Este campo es requerido'),
+    email: yup.string().email('El correo no es valido').required('Este campo es requerido'),
+    password: yup.string().min(8, 'La longitud mínima es de 8 caracteres').required('Este campo es requerido'),
     passwordConfirm: yup
         .string()
-        .min(8, 'La longitud min es de 8 caracteres')
-        .required('El campo es requerido')
+        .min(8, 'La longitud mínima es de 8 caracteres')
+        .required('Este campo es requerido')
         .oneOf([yup.ref('password')], 'La contraseña no coincide')
   })
 
@@ -78,9 +78,9 @@ function Register() {
         <Layout>
             <section className="register-page-container">
                 <form className="register-page-section-form" onSubmit={handleSubmit(onSubmitRegister)}>
-                    <h2 className='title-card text-center'>Crear una <span className='yellow-text'>cuenta</span></h2>
+                    <h2 className='title-card text-center'>Crear <span className='yellow-text'>Cuenta</span></h2>
                     <p className='p-text-card text-center padding-text'>
-                        Persona fisica con actividad profesional y empresarial
+                        Persona física con actividad profesional y/o empresarial
                     </p>
                     <TextField {...register("name")}
                         id="outlined-full-width"
@@ -126,13 +126,13 @@ function Register() {
                     <p className = "text-danger">{errors.rfc?.message}</p>
 
                     <h2 className='title-card text-center'>
-                        Datos acceso
+                        Datos De Acceso
                     </h2>
 
                     <TextField {...register("email")}
                         id="outlined-full-width"
-                        label="Correo electronico"
-                        placeholder="Correo electronico"
+                        label="Correo electrónico"
+                        placeholder="Correo electrónico"
                         fullWidth
                         margin="normal"
                         InputLabelProps={{
@@ -173,10 +173,10 @@ function Register() {
                         className='register-input'
                     /><p className = "text-danger">{errors.passwordConfirm?.message}</p>
                     <Button type ="submit" className="btn-contapp-navbar" >
-                        <span className="text-btn-landing">Crear cuenta</span>
+                        <span className="text-btn-landing">CREAR CUENTA</span>
                     </Button>
                     {
-                        message &&  <p className="text-danger" > {message}</p>
+                        message &&  <p className="text-danger"> {message}</p>
                     }
                 </form>
             </section>

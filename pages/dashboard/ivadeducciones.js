@@ -81,10 +81,12 @@ export default function IVADeducciones() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El IVA acreditable o dedudible, es aquel IVA que efectivamente
+                                    <p className="p-text-card">
+                                        El IVA acreditable o deducible, es aquel IVA que efectivamente
                                         pagaste de gastos relacionados con tu actividad en el mes.
-                                        Asi mismos, estos deben contar con su factura para poder
-                                        ser deducibles.</p>
+                                        Asimismo, estos deben contar con su factura para poder
+                                        ser deducibles.
+                                        </p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="IVA Acreditable" idInput="Input-ivaAcreditable" register={register} field='vatFAVOR' />

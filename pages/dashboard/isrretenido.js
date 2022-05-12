@@ -80,9 +80,9 @@ export default function ISRRetenido() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El ISR retenido es aquel que se da cuando una persona fisica
+                                    <p className="p-text-card">El ISR retenido se obtiene cuando una persona física
                                         factura servicios profesionales a una persona moral, este monto
-                                        lo podras encontrar desglozado en tus facturas efectivamente
+                                        lo podrás encontrar desglosado en tus facturas efectivamente
                                         cobradas en el mes.</p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">

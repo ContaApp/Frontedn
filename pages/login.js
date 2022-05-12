@@ -11,10 +11,9 @@ import * as yup from "yup";
 // Aqui se importa el servicio
 import {loginUser} from '../services/users/index';
 
-
 const schemaLogin = yup.object({
-    email: yup.string().email('El email no es valido').required('El campo es requerido'),
-    password: yup.string().min(8, 'La longitud min es de 8 caracteres').required('El campo es requerido')
+    email: yup.string().email('El email no es valido').required('Este campo es requerido'),
+    password: yup.string().min(8, 'La longitud mínima es de 8 caracteres').required('Este campo es requerido')
 })
 
 function Login() {
@@ -36,8 +35,6 @@ function Login() {
 
         console.log('Data response:',response);
         console.log('Data dataJson:',dataJson);
-        
-
 
         if (response.status === 200){
           const token = dataJson.data.token;
@@ -49,8 +46,7 @@ function Login() {
             return
         }else {
            // Si ocurre un error
-        setMessage ('Error al ingresar a tu cuenta, vuelve a intentarlo'); 
-       
+        setMessage ('Correo electrónico y/o contraseña inválidos, intenta nuevamente'); 
         }
      }
      console.log(errors);
@@ -67,8 +63,8 @@ function Login() {
 
                 <TextField {...register("email")}
                     id="outlined-full-width"
-                    label="Correo electronico"
-                    placeholder="Correo electronico"
+                    label="Correo Electrónico"
+                    placeholder="Correo Electrónico"
                     fullWidth
                     margin="normal"
                     InputLabelProps={{
@@ -97,7 +93,7 @@ function Login() {
                 <Button type = 'submit' className="btn-contapp-navbar" /* onClick={()=> router.push('/dashboard/dashboardHome')} */>
                     <span className="text-btn-landing">Iniciar Sesión</span>
                 </Button>
-
+                
                 {
                         message &&  <p className="text-danger" > {message}</p>
                     }

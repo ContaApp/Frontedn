@@ -79,8 +79,10 @@ export default function ISRDeducible() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El ISR deducible se dará de las deducciones del mes,
-                                        estas son todo gasto efectivamente pagado relacionado con tu actividad, estos se deberan considerar sin IVA o alguna retención.</p>
+                                    <p className="p-text-card">
+                                    El ISR deducible se obtendrá de las deducciones del mes,
+                                    estas son todo gasto efectivamente pagado y relacionado con tu actividad, estos se deberan considerar sin IVA o alguna retención.
+                                        </p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="ISR Deducible" idInput="Input-isrDeducible" register={register} field='expenses' />
