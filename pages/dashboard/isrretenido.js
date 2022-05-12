@@ -23,12 +23,13 @@ const schemaIsrRetenido = yup.object({
 
 export default function ISRRetenido() {
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
+    const {limitCalculos} = useContext(ContextInputsCards);
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrRetenido)
     });
     const onSubmitInput = async (data) => {
-
+        console.log('limitCalculos :', limitCalculos );
         console.log('Enviando data...');
         console.log('la data es:', data);
         setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data });
@@ -50,6 +51,14 @@ export default function ISRRetenido() {
         setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
        
         }  */
+
+    
+    const {objetLimit}= limitCalculos;
+    const {incomes}= responseIsrForm;
+
+    const multiplicacion = objetLimit.lowerLimit * incomes.incomes;
+    console.log('La multiplicacion es:', multiplicacion);
+    
         console.log(errors);
     }
     return (

@@ -17,38 +17,53 @@ import LottieISRDeducible from '../../components/Lotties/Lottie-isr-deducible';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
+//se importa servicio 
+import { searchRange } from '../../services/tablesISR/index';
 const schemaIsrDeducible = yup.object({
     expenses: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function ISRDeducible() {
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
+    const {responseInputsDate, setResponseInputsDate} = useContext(ContextInputsCards);
+    const {limitCalculos, setLimitCalculos} = useContext(ContextInputsCards);
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrDeducible)
     });
+
     const onSubmitInput = async (data) => {
 
         console.log('Enviando data...');
         console.log('la data es:', data);
         setResponseIsrForm({ ...responseIsrForm, expenses: data })
-        router.push('/dashboard/isrretenido')
+        
         console.log('la data acumulada es:', responseIsrForm);
+        
         //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
+        const objetSearchRange={
+            ...responseInputsDate, ...responseIsrForm.incomes
+        }
+
+    
+        console.log('El objeto que buscará',objetSearchRange);
+            const {month, year, incomes}= objetSearchRange
+        const response = await searchRange(month,  year, incomes);
         const dataJson = await response.json();
  
         console.log('Data response:',response);
         console.log('Data dataJson:',dataJson);
- 
+        
+        const objetLimitIsr= dataJson.data.dataFound[0];
+        
+        setLimitCalculos({...limitCalculos, objetLimitIsr:objetLimitIsr})
+
         if (response.status === 200){
-            router.push('/login')
+            console.log('El objeto Limit es:',objetLimitIsr )
+            console.log('El objeto guardandolo en el contexto',limitCalculos )
+            router.push('/dashboard/isrretenido')
             return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
-       
-        }  */
+        }
         console.log(errors);
     }
     return (
