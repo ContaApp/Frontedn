@@ -1,6 +1,6 @@
 import { Col, Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/utilities/Layout';
 import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
@@ -42,18 +42,20 @@ export default function IVADeducciones() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">Ingresa la suma del IVA retenido de las facturas cobradas
-en el mes, este lo podrias encontrar en el desgloce de 
-tus facturas efectivamente cobradas.</p>
-                                    
+                                    <p className="p-text-card">
+                                        Ingresa la suma del IVA retenido de las facturas cobradas
+                                        en el mes, este lo podrás encontrar en el desglose de
+                                        tus facturas efectivamente cobradas.
+                                        </p>
+
                                     <div className="div-container-input-card">
                                         <InputMoney nombre="IVA Retenido" idInput="Input-ivaRetenido" />
                                     </div>
                                     <div className="div-container-buttons-card">
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/ivadeducciones')}>
+                                        <Button className="btn-pages-np" onClick={() => router.push('/dashboard/ivadeducciones')}>
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/ivaacreditable')}>
+                                        <Button className="btn-pages-np" onClick={() => router.push('/dashboard/ivaacreditable')}>
                                             <Image className="icon-btn-pages" src={next} alt="Siguiente" />
                                         </Button>
 

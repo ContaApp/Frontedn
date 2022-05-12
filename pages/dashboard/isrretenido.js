@@ -1,6 +1,6 @@
 import { Col, Row, Button } from 'react-bootstrap';
 import Image from 'next/image';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
 import Layout from '../../components/utilities/Layout';
 import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
@@ -42,19 +42,19 @@ export default function ISRRetenido() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El ISR retenido es aquel que se da cuando una persona fisica
-factura servicios profesionales a una persona moral, este monto
-lo podras encontrar desglozado en tus facturas efectivamente
-cobradas en el mes.</p>
-                                    
+                                    <p className="p-text-card">El ISR retenido se obtiene cuando una persona física
+                                        factura servicios profesionales a una persona moral, este monto
+                                        lo podrás encontrar desglosado en tus facturas efectivamente
+                                        cobradas en el mes.</p>
+                                        
                                     <div className="div-container-input-card">
                                         <InputMoney nombre="ISR Retenido" idInput="Input-isrRetenido" />
                                     </div>
                                     <div className="div-container-buttons-card">
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/isrdeducible')}>
+                                        <Button className="btn-pages-np" onClick={() => router.push('/dashboard/isrdeducible')}>
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
-                                        <Button className="btn-pages-np" onClick={()=> router.push('/dashboard/resumencalculoisr')}>
+                                        <Button className="btn-pages-np" onClick={() => router.push('/dashboard/resumencalculoisr')}>
                                             <Image className="icon-btn-pages" src={next} alt="Siguiente" />
                                         </Button>
 

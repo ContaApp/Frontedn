@@ -42,10 +42,11 @@ export default function ISRCobranza() {
                             </Col>
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
-                                    <p className="p-text-card">El ISR que se acumulara es aquel que proveendra de tus
+                                    <p className="p-text-card">El ISR que se acumulara es aquel que provendrá de tus
                                         ingresos efectivamente cobrados en el mes, para este
-                                        deberas tomar los subtotales de todos tus ingresos
-                                        provenientes de tu actividad.</p>
+                                        deberás tomar los subtotales de todos tus ingresos
+                                        provenientes de tu actividad.
+                                        </p>
                                     <div className="div-container-input-card">
                                         <InputMoney nombre="ISR Cobranza" idInput="Input-isrCobranza" />
                                     </div>

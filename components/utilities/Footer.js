@@ -18,7 +18,7 @@ function Footer() {
                 <div className="col-12 col-md-5">
                     <div className="d-flex justify-content-between">
                         <ul className="list-unstyled">
-                            <li className='font-weight-bold mb-4'>COMPAÑIA</li>
+                            <li className='font-weight-bold mb-4'>EMPRESA</li>
                             <li className="font-regular mb-3" onClick={()=> router.push('/')}>Inicio</li>
                             <li className="font-regular mb-3" onClick={()=> router.push('/#section-one')}>Beneficios</li>
                             <li className="font-regular mb-3" onClick={()=> router.push('/login')}>Inicia sesión</li>

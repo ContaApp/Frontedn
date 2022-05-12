@@ -7,10 +7,8 @@ import LayoutPage from '../../components/utilities/layout-page/LayoutPages';
 
 import TableResumenISRMonth from '../../components/utilities/Tables/TableResumenISRMonth';
 import TableResumenIVAMonth from '../../components/utilities/Tables/TableResumenIVAMonth';
-import ButtonPage from '../../components/utilities/ButtonPage';
 import Calendar from '../../components/utilities/Calendar';
 //import InputMoney from '../components/utilities/Input/Input-money-pages';
-import LottieISRCobranza from '../../components/Lotties/Lottie-isr-cobranza';
 import imageResumen from '../../public/assets/images/Resume-bro.svg'
 
 import next from '../../public/assets/icons/Next.svg';
@@ -72,7 +70,7 @@ export default function ResumenDelMes() {
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
                                         <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/dashboardHome')}>
-                                            <span className="text-btn-pages-general" >Nuevo Cálculo</span>
+                                            <span className="text-btn-pages-general" >Nuevo cálculo</span>
                                         </Button>
 
                                     </div>

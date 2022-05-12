@@ -31,35 +31,39 @@ export default function Home() {
                 <Col sm={12} md={6}>
                   <div className="hero">
                     <h2 className="text-hero">Realiza el <span className="span-primary-hero">cálculo </span> de tus impuestos</h2>
-                    <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía!, </span><br></br><span className="span-secundary-hero">Calculos para personas fisicas con actividad profesional y empresarial.</span></p>
-                    <div className="container-hero-button-landing"><Button className="btn-contapp-navbar" onClick={() => router.push('/register')}><span className="text-btn-landing">UNETE A tuContapp</span></Button></div>
+                    <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía! </span><br></br><span className="span-secundary-hero">Para personas físicas con actividad profesional y/o empresarial.</span></p>
+                    <div className="container-hero-button-landing"><Button className="btn-contapp-navbar" onClick={() => router.push('/register')}><span className="text-btn-landing">UNETE A TUCONTAPP</span></Button></div>
                   </div>
                 </Col>
                 <Col sm={12} md={6}>
                   <div className="div-lottie-landing">
-                    <LottieLanding id="lottieLanding" alt="Unete a tuContapp" /></div>
+                    <LottieLanding id="lottieLanding" alt="Únete a tuContapp" />
+                  </div>
                 </Col></Row>
             </Hero>
             </section>
           </Row>
 
-          <Row id="section-one" className="section-one">
+          <Row className="section-one">
 
-          </Row>
-          <Row className="section-two">
-
+            <Col sm={12} md={6} >
+              <div className="div-imagen-num">
+                <Image id="imageOne" src={imageOne} alt="Imagen tuContapp 2" />
+              </div>
+            </Col>
             <Col sm={12} md={6} >
               <div className="div-card-text">
                 <WhiteCardLanding>
                   <p className="text-card-landing">
-                    <span className="span-primary-card-landing">Regístrate ,</span>
-                    <span className="span-secundary-card-landing"> solo necesitas tu nombre, RFC, correo y crear tu contraseña. </span>
+                    <span className="span-primary-card-landing">¡Regístrate!</span>
+                    <span className="span-secundary-card-landing"> Solo necesitas tu nombre, RFC, correo y crear tu contraseña.</span>
                   </p>
                 </WhiteCardLanding>
               </div>
             </Col>
 
           </Row>
+
           <Row className="section-two">
 
             <Col sm={12} md={6} >
@@ -74,11 +78,12 @@ export default function Home() {
             </Col>
             <Col sm={12} md={6} >
               <div className="div-imagen-num">
-                <Image id="imageTwo" src={imageTwo} alt="Imagen tuContapp" />
+                <Image id="imageTwo" src={imageTwo} alt="Imagen tuContapp 2" />
               </div>
             </Col>
 
           </Row>
+
           <Row className="section-three">
 
             <Col sm={12} md={6} >
@@ -91,7 +96,7 @@ export default function Home() {
                 <WhiteCardLanding>
                   <p className="text-card-landing">
                     <span className="span-primary-card-landing">Declara</span>
-                    <span className="span-secundary-card-landing"> paso a paso te ayudaremos a que tu mismo puedas presentar de manera correcta tu declaración. </span>
+                    <span className="span-secundary-card-landing"> paso a paso te ayudaremos a que tú mismo puedas presentar de manera correcta tu declaración. </span>
                   </p>
                 </WhiteCardLanding>
               </div>
@@ -109,9 +114,9 @@ export default function Home() {
                     <LogoWhite />
                     <p className="text-span"><span className="span-primary-blackcard">Autonomía </span>
                       <span className="span-secundary-blackcard">en tus declaraciones</span></p>
-                    <p className="text-p">¡Presenta tus declaraciones de manera correcta!</p>
+                    <p className="text-p">¡Presenta tus declaraciones de impuestos correctamente!</p>
                     <Button className="btn-contapp-navbar" onClick={() => router.push('/register')}>
-                      <span className="text-btn-landing">UNETE A tuContapp</span>
+                      <span className="text-btn-landing">UNETE A TUCONTAPP</span>
                     </Button>
                   </div>
                 </Col>

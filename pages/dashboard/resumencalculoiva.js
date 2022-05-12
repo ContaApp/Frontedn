@@ -25,7 +25,7 @@ export default function ResumenCalculoIVA() {
             <LayoutPage>
 
                 <Col sm={12} md={12}>
-                    <h1 className="title-card">Resumen de Cálculo de
+                    <h1 className="title-card">Resumen de cálculo de
                         <span className="span-title-card">
                             IVA
                         </span>
@@ -46,7 +46,7 @@ export default function ResumenCalculoIVA() {
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
                                         <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/resumenmes')}>
-                                            <span className="text-btn-pages-general" >Resumen Mensual</span>
+                                            <span className="text-btn-pages-general">Resumen Mensual</span>
                                         </Button>
 
                                     </div>

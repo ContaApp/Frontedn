@@ -25,7 +25,7 @@ export default function ResumenCalculoISR() {
             <LayoutPage>
 
                 <Col sm={12} md={12}>
-                    <h1 className="title-card">Resumen de Cálculo de
+                    <h1 className="title-card">Resumen de cálculo de
                         <span className="span-title-card">
                             ISR
                         </span>
@@ -46,7 +46,7 @@ export default function ResumenCalculoISR() {
                                             <Image className="icon-btn-pages" src={prev} alt="Atrás" />
                                         </Button>
                                         <Button className="btn-pages-general" onClick={()=> router.push('/dashboard/ivacobrado')}>
-                                            <span className="text-btn-pages-general" >IR A CALCULO IVA</span>
+                                            <span className="text-btn-pages-general" >IR A CÁLCULO DE IVA</span>
                                         </Button>
 
                                     </div>
