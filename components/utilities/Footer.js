@@ -1,6 +1,9 @@
 import React from "react";
+import { useRouter } from 'next/router';
 
 function Footer() {
+    const router = useRouter();
+
     return (
         <footer className="container-fluid footer mt-4">
             <div className="row">
@@ -16,10 +19,10 @@ function Footer() {
                     <div className="d-flex justify-content-between">
                         <ul className="list-unstyled">
                             <li className='font-weight-bold mb-4'>COMPAÑIA</li>
-                            <li className="font-regular mb-3">Inicio</li>
-                            <li className="font-regular mb-3">Beneficios</li>
-                            <li className="font-regular mb-3">Inicia sesión</li>
-                            <li className="font-regular ">Crea tu cuenta</li>
+                            <li className="font-regular mb-3" onClick={()=> router.push('/')}>Inicio</li>
+                            <li className="font-regular mb-3" onClick={()=> router.push('/#section-one')}>Beneficios</li>
+                            <li className="font-regular mb-3" onClick={()=> router.push('/login')}>Inicia sesión</li>
+                            <li className="font-regular " onClick={()=> router.push('/register')}>Crea tu cuenta</li>
                         </ul>
                         <ul className="list-unstyled ">
                             <li className='font-weight-bold mb-4'>CONTACTO</li>

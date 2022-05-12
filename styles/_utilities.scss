@@ -23,7 +23,7 @@ h4.MuiTypography-root {
   line-height: 27px;
   margin-left: 32px;
   &:hover {
-    background: #368E1A;
+    background: $color-green-hover;
   }
 }
 
@@ -70,6 +70,9 @@ border-radius: 100px;
 margin-top: 32px;
 margin-bottom: 32px;
 border: none;
+&:hover {
+  background: $color-green-hover;
+}
  }
  
  .text-btn-pages-np{
@@ -126,5 +129,6 @@ border: none;
     font-family: $font-nunito;
     color: $color-green;
  }
+
 
 

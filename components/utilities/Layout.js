@@ -12,7 +12,13 @@ function Layout({children}) {
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"/>
              </Head>
-             <NavBar/>
+             {
+                typeof window !== "undefined"
+                &&
+                localStorage.getItem("LoggedDataUser") //verificamos la existencia del token
+                ?<NavigationBarLogedIn></NavigationBarLogedIn> // Si encuentra tocket, renderiza el navbar de logeado
+                :<NavBar></NavBar>// si no 
+             }
                 {children}
              <Footer/>
         </>

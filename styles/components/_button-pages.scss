@@ -9,7 +9,11 @@ border: none;
 padding: 10px;
 padding-left: 12px;
 padding-right: 12px;
- }
+&:hover {
+    background: $color-green-hover;
+      };
+  }
+ 
 
 .btn-primary{
     width: auto;

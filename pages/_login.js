@@ -17,8 +17,8 @@ function Login() {
 
                 <TextField
                     id="outlined-full-width"
-                    label="Correo electronico"
-                    placeholder="Correo electronico"
+                    label="Correo electrónico"
+                    placeholder="Correo Electrónico"
                     fullWidth
                     margin="normal"
                     InputLabelProps={{

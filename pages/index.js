@@ -30,8 +30,8 @@ export default function Home() {
               <Row>
                 <Col sm={12} md={6}>
                   <div className="hero">
-                    <h2 className="text-hero">Realiza el <span className="span-primary-hero">calculo </span> de tus impuestos</h2>
-                    <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía! </span><br></br><span className="span-secundary-hero">Calculos para personas físicas con actividad profesional y empresarial.</span></p>
+                    <h2 className="text-hero">Realiza el <span className="span-primary-hero">cálculo </span> de tus impuestos</h2>
+                    <p className="text-hero-span"><span className="span-secundary-hero">¡Con precisión y autonomía!, </span><br></br><span className="span-secundary-hero">Calculos para personas fisicas con actividad profesional y empresarial.</span></p>
                     <div className="container-hero-button-landing"><Button className="btn-contapp-navbar" onClick={() => router.push('/register')}><span className="text-btn-landing">UNETE A tuContapp</span></Button></div>
                   </div>
                 </Col>
@@ -42,14 +42,12 @@ export default function Home() {
             </Hero>
             </section>
           </Row>
-          <Row className="section-one">
 
+          <Row id="section-one" className="section-one">
 
-            <Col sm={12} md={6}>
-              <div className="div-imagen-num" >
-                <Image id="imageOne" src={imageOne} alt="Imagen tuContapp" />
-              </div >
-            </Col>
+          </Row>
+          <Row className="section-two">
+
             <Col sm={12} md={6} >
               <div className="div-card-text">
                 <WhiteCardLanding>
@@ -102,7 +100,7 @@ export default function Home() {
           </Row>
 
         </Container>
-        <Row className="row-container-black-card">
+        <div className="row-container-black-card">
           <section className="section-four">
             <BlackCardLanding>
               <Row>
@@ -117,13 +115,15 @@ export default function Home() {
                     </Button>
                   </div>
                 </Col>
-                <Col sm={12} md={6}>
-                  <div>
-                    <Image id="imageFour" src={imageFour} alt="Unete a tuContapp" /></div>
-                </Col></Row>
+                <Col sm={12} md={6} className='center-content'>
+                  <div >
+                    <Image id="imageFour" src={imageFour} alt="Unete a tuContapp" />
+                  </div>
+                </Col>
+              </Row>
             </BlackCardLanding>
           </section >
-        </Row>
+        </div>
       </div>
     </Layout>
   )

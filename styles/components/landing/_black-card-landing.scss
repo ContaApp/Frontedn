@@ -49,7 +49,6 @@ color:$color-white;
 width: 100%;
 height: auto;
 
-
 font-family: $font-nunito;
 font-style: normal;
 font-weight: 800;
@@ -69,6 +68,9 @@ color: $color-white;
 .btn-landing{
     width: 213px;
 height: 32px;
+&:hover {
+    background: $color-green-hover;
+  }
 
 
 background-color: $color-green;
@@ -87,16 +89,22 @@ border: none;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
 
 @media screen and (min-width: 900px) {
     .div-datos-blackcard {
         align-items: start;
         text-align: left;
+        padding: 32px 32px 32px 64px;
     }
     .text-p{
         justify-content:start;
         color:$color-white;
         }
+}
+
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
