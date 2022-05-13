@@ -1,0 +1,110 @@
+.black-card-landing{
+    width: 100%;
+height: auto;
+
+background: rgba(25, 30, 35, 0.95);
+border-radius: 24px;
+}
+
+.text-span{
+ /*    background: red; */
+    font-family: $font-nunito;
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 58px;
+}
+
+.span-primary-blackcard {
+    color: $color-yellow;
+}
+
+.span-secundary-blackcard {
+    color: $color-white;
+}
+
+.text-p{
+//background: rebeccapurple;
+width: 100%;
+height: auto;
+
+
+font-family: $font-montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+//line-height: 62px;
+/* or 347% */
+
+display: flex;
+align-items: center;
+justify-content:center;
+
+color:$color-white;
+}
+
+
+.text-btn-landing{
+   
+width: 100%;
+height: auto;
+
+font-family: $font-nunito;
+font-style: normal;
+font-weight: 800;
+font-size: 16px;
+line-height: 27px;
+/* identical to box height, or 169% */
+
+display: flex;
+align-items: center;
+text-align: center;
+justify-content:center;
+text-transform: uppercase;
+
+color: $color-white;
+}
+
+.btn-landing{
+    width: 213px;
+height: 32px;
+&:hover {
+    background: $color-green-hover;
+  }
+
+
+background-color: $color-green;
+border-radius: 100px;
+margin-top: 32px;
+margin-bottom: 32px;
+border: none;
+}
+
+.div-datos-blackcard{
+    padding: 32px;
+   // background: floralwhite;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media screen and (min-width: 900px) {
+    .div-datos-blackcard {
+        align-items: start;
+        text-align: left;
+        padding: 32px 32px 32px 64px;
+    }
+    .text-p{
+        justify-content:start;
+        color:$color-white;
+        }
+}
+
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

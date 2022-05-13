@@ -1,0 +1,134 @@
+/* 
+Estilos de  Componente calendar
+*/
+div.MuiToolbar-root {
+  background: $color-green;
+}
+
+h4.MuiTypography-root {
+  color: $color-white;
+}
+
+.btn-contapp-navbar {
+  height: 36px;
+  background: #6abf4b;
+  border-radius: 100px;
+  color: white;
+  border: none;
+  padding: 0 24px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 27px;
+  margin-left: 32px;
+  &:hover {
+    background: $color-green-hover;
+  }
+}
+
+/*Estilos componente Stepper*/
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+    background: $color-orange;
+}
+
+.container-Stepper {
+    //background: green;
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+    margin-bottom: 0px;
+    padding: 12px;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+    color: $color-orange;
+    background: none;
+}
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+    circle{
+        background: $color-orange;
+    }
+    
+} 
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-completed {
+    color: $color-green;
+}
+
+/*
+Estilos Botones -next -previus 
+ */
+
+ .btn-pages-np{
+    width: 20%;
+height: auto;
+
+
+background-color: $color-green;
+border-radius: 100px;
+margin-top: 32px;
+margin-bottom: 32px;
+border: none;
+&:hover {
+  background: $color-green-hover;
+}
+ }
+ 
+ .text-btn-pages-np{
+    width: 100%;
+    height: auto;
+    
+    
+    font-family: $font-nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 169% */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content:center;
+    text-transform: uppercase;
+    
+    color: $color-white;
+ }
+
+ .icon-btn-pages{
+     color: $color-white;
+     width:32px;
+     height:32px;
+ }
+
+ /*Estilos de Input**/
+
+ .MuiInputLabel-root{
+    font-family: $font-nunito;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+     color: $color-orange;
+
+ }
+
+ /*Estilos para tabla*/
+
+ .table-head-column{
+    font-family: $font-nunito;
+    color: $color-orange;
+    font-weight: bold;
+ }
+
+ .table-concept-cell{
+    font-family: $font-nunito;
+    color: $color-green;
+ }
+
+
+

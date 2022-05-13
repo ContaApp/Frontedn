@@ -1,0 +1,41 @@
+.link-font {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height, or 169% */
+    /* Gray-scale/gray-700 */
+    color: #616161;
+  }
+
+.selection-style{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+    &:hover {
+      background: #368E1A;
+  }
+}
+
+.margin-right{
+  margin-right: 3rem;
+}
+
+.align-profile-menu{
+  display: flex;
+}
+
+.user-avatar{
+  align-self: flex-start;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.navbar-nav .dropdown-menu{
+  position: absolute;
+  left: -37px;
+}
+
