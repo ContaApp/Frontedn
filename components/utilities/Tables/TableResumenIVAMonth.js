@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { react, useState, useContext } from 'react';
+import { react, useState, useContext, useEffect } from 'react';
 import {ContextInputsCards} from '../../../contexts/ContextInputsCards';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -29,13 +29,23 @@ export default function TableResumenIVAMonth() {
     createData('IVA por Acreditar', 3.9),
   ]; */
 
-  const rows = [
+/*  const rows = [
     createData('IVA Cobrado', `$ ${responseInputsForm.bodyData.iva.vatAR}`),
     createData('IVA Pagado', `$ ${responseInputsForm.bodyData.iva.vatAP}`),
     createData('IVA Retnido',`$ ${responseInputsForm.bodyData.iva.vatWH}`),
     createData('IVA a Cargo (favor)', `$ ${responseInputsForm.bodyData.iva.vat}`),
     createData('IVA por Acreditar', `$ ${responseInputsForm.bodyData.iva.vatFAVOR}`),
-  ];
+  ];*/
+  const [rows, setRows] = useState([]) 
+  useEffect( () => {
+    setRows([
+      createData('IVA Cobrado', `$ ${responseInputsForm.bodyData.iva.vatAR}`),
+      createData('IVA Pagado', `$ ${responseInputsForm.bodyData.iva.vatAP}`),
+      createData('IVA Retnido',`$ ${responseInputsForm.bodyData.iva.vatWH}`),
+      createData('IVA a Cargo (favor)', `$ ${responseInputsForm.bodyData.iva.vat}`),
+      createData('IVA por Acreditar', `$ ${responseInputsForm.bodyData.iva.vatFAVOR}`),
+    ])
+  }, [])
   return (
     <TableContainer component={Paper} className="tableResumen">
       <Table sx={{ Width: 350 }} size="small" aria-label="a dense table">
