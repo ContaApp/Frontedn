@@ -53,27 +53,7 @@ export default function IVADeducciones() {
         //router.push('/dashboard/resumencalculoiva');
        
         console.log('La data a enviar', objetoUnion);
-      /*   const {responseInputsDate.year, }= objetoUnion;
-        const bodyData ={ 
-                year:2022,
-                month: "Abril",
-                isr:{
-                    incomes: responseIsrForm.incomes,
-                expenses:responseIsrForm.expenses,
-                profit: responseIsrForm.profit,
-                fixRate:responseIsrForm.fixRate,
-                itPercent: responseIsrForm.itPercent,
-                whitholdedIncomeTax:responseIsrForm.whitholdedIncomeTax,
-                itToPay: responseIsrForm.itToPay
-                },
-                iva:{
-                    vatAP: responseIvaForm.vatAP,
-                    vatAR: responseIvaForm.vatAR,
-                    vatWH: responseIvaForm.vatWH,
-                    vatFAVOR: responseIvaForm.vatFAVOR,
-                    vat: responseIvaForm.vat,
-                }
-            }*/
+      
          
        console.log('soy el objeto responseInputsDate',responseInputsDate);
        console.log('soy el objeto responseIsrForm',responseIsrForm);

@@ -36,21 +36,7 @@ export default function IVADeducciones() {
         router.push('/dashboard/ivaretenido');
         console.log('la data acumulada es:', responseIvaForm);
 
-        //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){
-            router.push('/login')
-            return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
        
-        }  */
         console.log(errors);
     }
     return (

@@ -77,64 +77,6 @@ export default function ISRRetenido() {
             
 
 
-            // setTimeout(function () {
-            //     setTimeout(function () {
-            //         console.log('El objeto LimitCalculos guardandolo en el contexto', limitCalculos)
-            //         router.push('/dashboard/resumencalculoisr');
-            //     }, 2000)
-
-            //     console.log('Enviando data...');
-            //     console.log('la data es:', data);
-            //     const acumulated = calculateIsracumulated(objetoProfit)
-            //     console.log('acumulated', acumulated)
-            //     const objetoAcumulated = { acumulated: acumulated };
-                
-            //     setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data.whitholdedIncomeTax, profit: objetoProfit.profit, acumulated: objetoAcumulated.acumulated});
-
-            
-            // }, 5000);
-
-            // setTimeout(async function () {
-            //     //Aqui se maneja la promesa
-            //     const objetSearchRange = {
-            //         ...responseInputsDate, ...objetoProfit
-            //     }
-            //     console.log('El objeto que buscará', objetSearchRange);
-            //     const { month, year, profit } = objetSearchRange;
-            //     const response = await searchRange(month, year, profit);
-            //     const dataJson = await response.json();
-
-            //     console.log('Data response:', response);
-            //     console.log('Data dataJson:', dataJson);
-
-            //     const objetLimitIsr = dataJson.data.dataFound[0];
-
-            //     setLimitCalculos(objetLimitIsr)
-
-            //     if (response.status === 200) {
-            //         console.log('El objeto Limit es:', objetLimitIsr)
-            //         console.log('El objeto guardandolo en el contexto', limitCalculos)
-                
-            //         return
-            //     }
-            // }, 2000);
-
-            // const p = calculateIsrProfit(responseIsrForm)
-            // console.log('profit', p)
-            // const objetoProfit = { profit: p };
-            // console.log('profit en objeto:', objetoProfit.profit)
-
-
-
-            //router.push('/dashboard/resumencalculoisr');
-
-
-            /*   const {objetLimitIsr}= limitCalculos;
-            const {incomes}= responseIsrForm;
-                console.log('el lowerLimit',objetLimitIsr.lowerLimit);
-                console.log('incomes', incomes.incomes);
-            const multiplicacion = (objetLimitIsr.lowerLimit * incomes.incomes);
-            console.log('La multiplicacion es:', multiplicacion); */
         } catch (error) {
             console.error('Error: ', error)
         }
