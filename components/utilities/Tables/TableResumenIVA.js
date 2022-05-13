@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { react, useState, useContext } from 'react';
+import { react, useState, useContext, useEffect } from 'react';
 import {ContextInputsCards} from '../../../contexts/ContextInputsCards';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -31,13 +31,17 @@ export default function TableResumenIVA() {
     createData('IVA a Cargo (favor)', 305, 3.7, 67, 4.3,305, 3.7, 67, 4.3,305, 3.7, 67, 4.3),
     createData('IVA por Acreditar', 356, 16.0, 49, 3.9,356, 16.0, 49, 3.9,356, 16.0, 49, 3.9),
   ]; */
-  const rows = [
+
+  const [rows, setRows] = useState([]) 
+useEffect( () => {
+  setRows([
     createData('IVA Cobrado', `$ ${responseInputsForm.bodyData.iva.vatAR}`),
     createData('IVA Pagado', `$ ${responseInputsForm.bodyData.iva.vatAP}`),
     createData('IVA Retenido', `$ ${responseInputsForm.bodyData.iva.vatWH}`),
     createData('IVA a Cargo (favor)', `$ ${responseInputsForm.bodyData.iva.vat}`),
     createData('IVA por Acreditar', `$ ${responseInputsForm.bodyData.iva.vatFAVOR}`)
-  ];
+  ])
+}, [])
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">

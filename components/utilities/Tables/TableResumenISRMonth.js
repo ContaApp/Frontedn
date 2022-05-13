@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { react, useState, useContext } from 'react';
+import { react, useState, useContext, useEffect } from 'react';
 import {ContextInputsCards} from '../../../contexts/ContextInputsCards';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -30,14 +30,18 @@ const month = (responseInputsDate.monthM);
   createData('ISR RETENIDO', 3.9),
   createData('ISR A PAGAR',  3.9),
 ]; */
-const rows = [
-  createData('COBRANZA', `$ ${responseIsrForm.incomes}`),
-  createData('DEDUCCIONES', `$ ${responseIsrForm.expenses}`),
-  createData('UTILIDAD', `$ ${responseIsrForm.profit}`),
-  createData('ACUMULADO', `$ ${responseIsrForm.acumulated}`),
-  createData('ISR RETENIDO', `$ ${responseIsrForm.whitholdedIncomeTax}`),
-  createData('ISR A PAGAR',  `$ ${responseIsrForm.itToPay}`),
-];
+
+const [rows, setRows] = useState([]) 
+useEffect( () => {
+  setRows([
+    createData('COBRANZA', `$ ${responseIsrForm.incomes}`),
+    createData('DEDUCCIONES', `$ ${responseIsrForm.expenses}`),
+    createData('UTILIDAD', `$ ${responseIsrForm.profit}`),
+    createData('ACUMULADO', `$ ${responseIsrForm.acumulated}`),
+    createData('ISR RETENIDO', `$ ${responseIsrForm.whitholdedIncomeTax}`),
+    createData('ISR A PAGAR',  `$ ${responseIsrForm.itToPay}`),
+  ])
+}, [])
   return (
     <TableContainer component={Paper} className="tableResumen">
       <Table sx={{ Width: 350 }} size="small" aria-label="a dense table">
