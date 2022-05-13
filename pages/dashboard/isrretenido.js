@@ -17,40 +17,70 @@ import LottieISRRetenido from '../../components/Lotties/Lottie-isr-retenido';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
+//se importa servicio 
+import { searchRange } from '../../services/tablesISR/index';
+
+import { calculateIsrProfit, calculateIsracumulated, calculateIsrResult, calculateIsrItToPay } from '../../lib/calculosISR';
+
+
 const schemaIsrRetenido = yup.object({
-    whitholdedIncomeTax: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    whitholdedIncomeTax: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function ISRRetenido() {
+    const { responseInputsDate, setResponseInputsDate } = useContext(ContextInputsCards);
+    const { limitCalculos, setLimitCalculos } = useContext(ContextInputsCards);
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
     const router = useRouter();
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrRetenido)
     });
+
     const onSubmitInput = async (data) => {
+        try {
+            // la resta de cobranza - deducible
+            const isrProfit = calculateIsrProfit(responseIsrForm.incomes, responseIsrForm.expenses)
+            console.log('isrProfit: ', isrProfit)
+            // Busca los limites
+            const objetSearchRange = {
+                ...responseInputsDate, profit: isrProfit 
+            }
+            console.log(objetSearchRange)
 
-        console.log('Enviando data...');
-        console.log('la data es:', data);
-        setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data });
-        router.push('/dashboard/resumencalculoisr');
-        console.log('la data acumulada es:', responseIsrForm);
+            console.log('El objeto que buscará', objetSearchRange);
+            const { month, year, profit } = objetSearchRange;
+            const response = await searchRange(month, year, profit);
+            const dataJson = await response.json();
 
-        //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){
-            router.push('/login')
-            return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
-       
-        }  */
-        console.log(errors);
+            console.log('Data response:', response);
+            console.log('Data dataJson:', dataJson);
+            if(response.status === 200) {
+                const objetLimitIsr = dataJson.data.dataFound[0];
+
+                console.log('objetLimitIsr: ', objetLimitIsr)
+    
+                // El acumulado comos e calcula  a partir de que datos
+                const isrResult = calculateIsrResult(objetLimitIsr, isrProfit)
+    
+                console.log('calculateIsrResult: ', isrResult )
+    
+                const isrItToPay = calculateIsrItToPay(isrResult, Number(data.whitholdedIncomeTax))
+    
+                console.log('isrItToPay: ', isrItToPay )
+                // checar nombres
+                setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data.whitholdedIncomeTax, profit: isrProfit, acumulated: isrProfit, result: isrResult, itToPay:isrItToPay, objetLimitIsr:objetLimitIsr});
+    
+                router.push('/dashboard/resumencalculoisr');
+            }
+
+            
+
+
+        } catch (error) {
+            console.error('Error: ', error)
+        }
+        
     }
     return (
         <Layout>

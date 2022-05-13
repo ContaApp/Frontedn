@@ -19,7 +19,7 @@ import prev from '../../public/assets/icons/Previus.svg';
 
 
 const schemaIvaDeducciones = yup.object({
-    vatFAVOR: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    vatAP: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function IVADeducciones() {
@@ -32,25 +32,11 @@ export default function IVADeducciones() {
 
         console.log('Enviando data...');
         console.log('la data es:', data);
-        setResponseIvaForm({ ...responseIvaForm, vatFAVOR: data })
+        setResponseIvaForm({ ...responseIvaForm, vatAP: data.vatAP })
         router.push('/dashboard/ivaretenido');
         console.log('la data acumulada es:', responseIvaForm);
 
-        //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){
-            router.push('/login')
-            return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
        
-        }  */
         console.log(errors);
     }
     return (
@@ -89,8 +75,8 @@ export default function IVADeducciones() {
                                         </p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
-                                            <InputMoney nombre="IVA Acreditable" idInput="Input-ivaAcreditable" register={register} field='vatFAVOR' />
-                                            <p className="text-danger">{errors.vatFAVOR?.message}</p>
+                                            <InputMoney nombre="IVA Acreditable" idInput="Input-ivaAcreditable" register={register} field='vatAP' />
+                                            <p className="text-danger">{errors.vatAP?.message}</p>
                                         </div>
                                         <div className="div-container-buttons-card">
                                             <Button className="btn-pages-np" type="submit" onClick={(e) => { e.preventDefault(), router.push('/dashboard/ivacobrado') }}>

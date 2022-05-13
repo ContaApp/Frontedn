@@ -18,7 +18,7 @@ import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
 const schemaIvaCobrado = yup.object({
-    vatAR: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    vatAR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 
@@ -32,25 +32,11 @@ export default function IVACobrado() {
 
         console.log('Enviando data...');
         console.log('la data es:', data);
-        setResponseIvaForm({ ...responseIvaForm, vatAR: data })
+        setResponseIvaForm({ ...responseIvaForm, vatAR: data.vatAR })
         router.push('/dashboard/ivadeducciones');
         console.log('la data acumulada es:', responseIvaForm);
 
-        //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){
-            router.push('/login')
-            return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
        
-        }  */
         console.log(errors);
     }
     return (

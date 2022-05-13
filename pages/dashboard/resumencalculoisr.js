@@ -1,3 +1,5 @@
+import { react, useState, useContext } from 'react';
+import { ContextInputsCards } from '../../contexts/ContextInputsCards';
 import { Col, Row, Button} from 'react-bootstrap';
 import Image from 'next/image';
 import {useRouter} from 'next/router';
@@ -14,8 +16,18 @@ import ButtonPage from '../../components/utilities/ButtonPage';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
+import { calculateIsrProfit, calculateIsracumulated , calculateIsrResult, calculateIsrItToPay} from '../../lib/calculosISR';
 export default function ResumenCalculoISR() {
+    const { responseInputsDate, setResponseInputsDate } = useContext(ContextInputsCards);
+    const { limitCalculos, setLimitCalculos } = useContext(ContextInputsCards);
+    const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
     const router = useRouter();
+   
+
+
+    console.log('la data acumulada en resumen isr es:', responseIsrForm, limitCalculos);
+    
+    
     return (
         <Layout>
             <Col sm={12} md={12}>

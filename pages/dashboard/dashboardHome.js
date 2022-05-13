@@ -22,7 +22,8 @@ export default function DashboardHome() {
 
     let fechaObjet = {
         month: '', 
-        year: ''
+        year: '',
+        monthM: ''
     }
 
     function getDate(){
@@ -38,10 +39,12 @@ export default function DashboardHome() {
     console.log('el año', selectedDate.getUTCFullYear());
     const nameMonth = meses[mesutcf-1];
     console.log('nombre mes', nameMonth);
+    const nameMonthM = meses[mesutcf-1].toUpperCase();
 
     fechaObjet = {
         month: nameMonth, 
-        year: year
+        year: year,
+        monthM: nameMonthM
     }
     console.log(fechaObjet);
     console.log('Recibo', fechaObjet);
@@ -54,7 +57,7 @@ export default function DashboardHome() {
         const fechaObjetR = fechaObjet;
         const {month, year}= fechaObjet;
         console.log('Recibo objeto', fechaObjet, 'mes:', month, 'año:', year);
-        setResponseInputsDate({...responseInputsDate, month: fechaObjet.month , year: fechaObjet.year})
+        setResponseInputsDate({...responseInputsDate, month: fechaObjet.month , year: fechaObjet.year, monthM: fechaObjet.monthM})
         setResponseIsrForm({ ...responseIsrForm, });
         console.log('Data', responseIsrForm);
         console.log('Data', responseInputsDate);

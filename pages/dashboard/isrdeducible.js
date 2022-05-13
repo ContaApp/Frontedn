@@ -17,38 +17,29 @@ import LottieISRDeducible from '../../components/Lotties/Lottie-isr-deducible';
 import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
+import { calculateIsrProfit } from '../../lib/calculosISR';
+
 const schemaIsrDeducible = yup.object({
-    expenses: yup.number('Ingrese solo datos numéricos').positive('Ingrese una cantidad valida').required('El campo es requerido')
+    expenses: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
 })
 
 export default function ISRDeducible() {
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
+    const {limitCalculos, setLimitCalculos} = useContext(ContextInputsCards);
+   
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrDeducible)
     });
+
     const onSubmitInput = async (data) => {
 
         console.log('Enviando data...');
         console.log('la data es:', data);
-        setResponseIsrForm({ ...responseIsrForm, expenses: data })
-        router.push('/dashboard/isrretenido')
+        setResponseIsrForm({ ...responseIsrForm, expenses: data.expenses })
         console.log('la data acumulada es:', responseIsrForm);
-        //Aqui se maneja la promesa
-        /* const response = await createAccount(data);
-        const dataJson = await response.json();
- 
-        console.log('Data response:',response);
-        console.log('Data dataJson:',dataJson);
- 
-        if (response.status === 200){
-            router.push('/login')
-            return
-        }else {
-           // Si ocurre un error
-        setMessage ('No pudimos registrar tu cuenta, vuelve a intentarlo'); 
-       
-        }  */
+         
+        router.push('/dashboard/isrretenido')
         console.log(errors);
     }
     return (
