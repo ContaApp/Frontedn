@@ -134,7 +134,9 @@ export default function IVADeducciones() {
                                         <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                             <div className="div-container-input-card">
                                                 <InputMoney nombre="IVA para Acreditar" idInput="Input-ivaAcreditar" register={register} field='vatFAVOR' />
-                                                <p className="text-danger">{errors.vatFAVOR?.message}</p>
+                                            </div>
+                                            <div>
+                                            <p className="text-danger">{errors.vatFAVOR?.message}</p>
                                             </div>
                                             <div className="div-container-buttons-card">
                                                 <Button className="btn-pages-np" type="submit" onClick={(e) => { e.preventDefault(), router.push('/dashboard/ivaretenido') }}>

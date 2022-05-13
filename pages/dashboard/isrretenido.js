@@ -44,7 +44,7 @@ export default function ISRRetenido() {
             console.log('isrProfit: ', isrProfit)
             // Busca los limites
             const objetSearchRange = {
-                ...responseInputsDate, profit: isrProfit 
+                ...responseInputsDate, profit: isrProfit
             }
             console.log(objetSearchRange)
 
@@ -55,32 +55,32 @@ export default function ISRRetenido() {
 
             console.log('Data response:', response);
             console.log('Data dataJson:', dataJson);
-            if(response.status === 200) {
+            if (response.status === 200) {
                 const objetLimitIsr = dataJson.data.dataFound[0];
 
                 console.log('objetLimitIsr: ', objetLimitIsr)
-    
+
                 // El acumulado comos e calcula  a partir de que datos
                 const isrResult = calculateIsrResult(objetLimitIsr, isrProfit)
-    
-                console.log('calculateIsrResult: ', isrResult )
-    
+
+                console.log('calculateIsrResult: ', isrResult)
+
                 const isrItToPay = calculateIsrItToPay(isrResult, Number(data.whitholdedIncomeTax))
-    
-                console.log('isrItToPay: ', isrItToPay )
+
+                console.log('isrItToPay: ', isrItToPay)
                 // checar nombres
-                setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data.whitholdedIncomeTax, profit: isrProfit, acumulated: isrProfit, result: isrResult, itToPay:isrItToPay, objetLimitIsr:objetLimitIsr});
-    
+                setResponseIsrForm({ ...responseIsrForm, whitholdedIncomeTax: data.whitholdedIncomeTax, profit: isrProfit, acumulated: isrProfit, result: isrResult, itToPay: isrItToPay, objetLimitIsr: objetLimitIsr });
+
                 router.push('/dashboard/resumencalculoisr');
             }
 
-            
+
 
 
         } catch (error) {
             console.error('Error: ', error)
         }
-        
+
     }
     return (
         <Layout>
@@ -117,6 +117,8 @@ export default function ISRRetenido() {
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="ISR Retenido" idInput="Input-isrRetenido" register={register} field='whitholdedIncomeTax' />
+                                        </div>
+                                        <div>
                                             <p className="text-danger">{errors.whitholdedIncomeTax?.message}</p>
                                         </div>
                                         <div className="div-container-buttons-card">

@@ -37,7 +37,7 @@ export default function IVARetenido() {
         console.log('la data acumulada es:', responseIvaForm);
 
 
-       
+
         console.log(errors);
     }
     return (
@@ -69,13 +69,15 @@ export default function IVARetenido() {
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
                                     <p className="p-text-card">
-                                    Ingresa la suma del IVA retenido de las facturas cobradas
-                                    en el mes, este lo podrás encontrar en el desglose de
-                                    tus facturas efectivamente cobradas.
+                                        Ingresa la suma del IVA retenido de las facturas cobradas
+                                        en el mes, este lo podrás encontrar en el desglose de
+                                        tus facturas efectivamente cobradas.
                                     </p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="IVA Retenido" idInput="Input-ivaRetenido" register={register} field='vatWH' />
+                                        </div>
+                                        <div>
                                             <p className="text-danger">{errors.vatWH?.message}</p>
                                         </div>
                                         <div className="div-container-buttons-card">
