@@ -24,7 +24,7 @@ import { createLogbooks } from '../../services/logbooks/index';
 import { calculateVat } from '../../lib/calculosIVA';
 
 const schemaIvaAcreditable = yup.object({
-    vatFAVOR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    vatFAVOR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 
@@ -134,7 +134,9 @@ export default function IVADeducciones() {
                                         <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                             <div className="div-container-input-card">
                                                 <InputMoney nombre="IVA para Acreditar" idInput="Input-ivaAcreditar" register={register} field='vatFAVOR' />
-                                                <p className="text-danger">{errors.vatFAVOR?.message}</p>
+                                            </div>
+                                            <div>
+                                            <p className="text-danger">{errors.vatFAVOR?.message}</p>
                                             </div>
                                             <div className="div-container-buttons-card">
                                                 <Button className="btn-pages-np" type="submit" onClick={(e) => { e.preventDefault(), router.push('/dashboard/ivaretenido') }}>

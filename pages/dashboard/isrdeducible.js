@@ -20,13 +20,13 @@ import prev from '../../public/assets/icons/Previus.svg';
 import { calculateIsrProfit } from '../../lib/calculosISR';
 
 const schemaIsrDeducible = yup.object({
-    expenses: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    expenses: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 export default function ISRDeducible() {
     const { responseIsrForm, setResponseIsrForm } = useContext(ContextInputsCards);
-    const {limitCalculos, setLimitCalculos} = useContext(ContextInputsCards);
-   
+    const { limitCalculos, setLimitCalculos } = useContext(ContextInputsCards);
+
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schemaIsrDeducible)
@@ -38,7 +38,7 @@ export default function ISRDeducible() {
         console.log('la data es:', data);
         setResponseIsrForm({ ...responseIsrForm, expenses: data.expenses })
         console.log('la data acumulada es:', responseIsrForm);
-         
+
         router.push('/dashboard/isrretenido')
         console.log(errors);
     }
@@ -71,12 +71,15 @@ export default function ISRDeducible() {
                             <Col sm={12} md={7}>
                                 <div className="div-container-text-card">
                                     <p className="p-text-card">
-                                    El ISR deducible se obtendrá de las deducciones del mes,
-                                    estas son todo gasto efectivamente pagado y relacionado con tu actividad, estos se deberan considerar sin IVA o alguna retención.
-                                        </p>
+                                        El ISR deducible se obtendrá de las deducciones del mes,
+                                        estas son todo gasto efectivamente pagado y relacionado con tu actividad, estos se deberan considerar sin IVA o alguna retención.
+                                    </p>
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="ISR Deducible" idInput="Input-isrDeducible" register={register} field='expenses' />
+
+                                        </div>
+                                        <div>
                                             <p className="text-danger">{errors.expenses?.message}</p>
                                         </div>
                                         <div className="div-container-buttons-card">

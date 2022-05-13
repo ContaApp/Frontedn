@@ -54,7 +54,7 @@ function Footer() {
                         alt=""
                         width="32"
                         height="32"
-                        src="/FacebookIcon.svg"
+                        src="/facebookIcon.svg"
                     />
                     <img className="mx-2"
                         alt=""

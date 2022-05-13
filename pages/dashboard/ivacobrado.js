@@ -18,7 +18,7 @@ import next from '../../public/assets/icons/Next.svg';
 import prev from '../../public/assets/icons/Previus.svg';
 
 const schemaIvaCobrado = yup.object({
-    vatAR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    vatAR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 
@@ -36,7 +36,7 @@ export default function IVACobrado() {
         router.push('/dashboard/ivadeducciones');
         console.log('la data acumulada es:', responseIvaForm);
 
-       
+
         console.log(errors);
     }
     return (
@@ -75,6 +75,8 @@ export default function IVACobrado() {
                                     <form className="form-pages-cards-inputs" onSubmit={handleSubmit(onSubmitInput)}>
                                         <div className="div-container-input-card">
                                             <InputMoney nombre="IVA Cobrado" idInput="Input-ivaCobrado" register={register} field='vatAR' />
+                                        </div>
+                                        <div>
                                             <p className="text-danger">{errors.vatAR?.message}</p>
                                         </div>
                                         <div className="div-container-buttons-card">

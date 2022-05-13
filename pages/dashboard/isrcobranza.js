@@ -22,7 +22,7 @@ import prev from '../../public/assets/icons/Previus.svg';
 import {createLogbooks} from '../../services/logbooks/index';
 
 const schemaIsrCobranza = yup.object({
-    incomes: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    incomes: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 export default function ISRCobranza() {
