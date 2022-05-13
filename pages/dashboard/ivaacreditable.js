@@ -24,7 +24,7 @@ import { createLogbooks } from '../../services/logbooks/index';
 import { calculateVat } from '../../lib/calculosIVA';
 
 const schemaIvaAcreditable = yup.object({
-    vatFAVOR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    vatFAVOR: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 

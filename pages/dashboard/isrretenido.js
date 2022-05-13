@@ -24,7 +24,7 @@ import { calculateIsrProfit, calculateIsracumulated, calculateIsrResult, calcula
 
 
 const schemaIsrRetenido = yup.object({
-    whitholdedIncomeTax: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    whitholdedIncomeTax: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 export default function ISRRetenido() {

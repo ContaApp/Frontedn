@@ -19,7 +19,7 @@ import prev from '../../public/assets/icons/Previus.svg';
 
 
 const schemaIvaDeducciones = yup.object({
-    vatAP: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').required('El campo es requerido')
+    vatAP: yup.number('Ingrese solo datos numéricos').min(0.0, 'Ingrese una cantidad valida').typeError('Campo requerido').required('El campo es requerido')
 })
 
 export default function IVADeducciones() {
